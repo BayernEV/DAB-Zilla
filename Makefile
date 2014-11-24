@@ -1,7 +1,4 @@
-#$HeadURL: svn://127.0.0.1/DABZilla/trunk/Makefile $
-#$Id: Makefile 24 2014-05-28 04:32:21Z evoigt $
-
-# Build DABZilla real time version
+# Build DABZilla run time version
 
 DMD=/opt/dmd2/linux/bin32/dmd
 CC=gcc
