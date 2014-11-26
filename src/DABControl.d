@@ -1,6 +1,3 @@
-// $HeadURL: svn://linux-marion/DABZilla/trunk/src/DABControl.d $
-// $Id: DABControl.d 9 2014-02-14 17:40:43Z root $
-
 module DABControl;
 
 // Enum DABControl

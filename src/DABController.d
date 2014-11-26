@@ -1,6 +1,3 @@
-// $HeadURL: svn://127.0.0.1/DABZilla/trunk/src/DABController.d $
-// $Id: DABController.d 29 2014-10-11 16:53:04Z evoigt $
-
 module DABController;
 
 import std.stdio;
@@ -376,9 +373,9 @@ class DABController
             }
         // send end of channels
         thrId.send(DABInfo.DABInfo.CHANNELS,
-                   cast(uint)0,
-                   cast(int)0,
-                   cast(dchar)0);
+                   to!uint(0),
+                   to!int(0),
+                   to!dchar(0));
     }
 
     public final DABState state()
