@@ -1,6 +1,3 @@
-// $HeadURL: svn://127.0.0.1/DABZilla/trunk/src/GUIBuilder.d $
-// $Id: GUIBuilder.d 35 2014-11-22 20:33:42Z evoigt $
-
 module GUIBuilder;
 
 import gtk.Builder;
@@ -145,7 +142,7 @@ class GUIBuilder
 
         if (w !is null)
             {
-                w.setTitle("DABZilla Version 0.3.2");
+                w.setTitle("DABZilla Version 0.3.3");
                 w.addOnHide( delegate void(Widget aux){ exit(0); } );
 
                 scaleVolume_ = cast(Scale)g.getObject("scaleVolume");

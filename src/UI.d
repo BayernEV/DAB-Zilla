@@ -1,6 +1,3 @@
-// $HeadURL: svn://127.0.0.1/DABZilla/trunk/src/UI.d $
-// $Id: UI.d 32 2014-10-12 07:13:39Z evoigt $
-
 module UI;
 
 import std.stdio;

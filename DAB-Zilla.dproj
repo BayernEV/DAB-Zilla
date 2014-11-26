@@ -42,7 +42,9 @@
     <DebugLevel>0</DebugLevel>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="glade\DAB.glade" />
+    <None Include="glade\DAB.glade">
+      <Generator>glade</Generator>
+    </None>
     <None Include="icons\minus.png" />
     <None Include="icons\muteOn.png" />
     <None Include="icons\plus.png" />
@@ -53,6 +55,7 @@
     <None Include="src\KeystoneWrapper.cpp" />
     <None Include="libkeystonecomm.so" />
     <None Include="model\Controller.zargo" />
+    <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="icons\" />
