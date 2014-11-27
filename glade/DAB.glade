@@ -23,7 +23,12 @@
     <property name="height_request">-1</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">../icons/hardMute.svg</property>
+    <property name="pixbuf">../icons/hardMute.png</property>
+  </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">../icons/exit.png</property>
   </object>
   <object class="GtkListStore" id="liststore1">
     <columns>
@@ -484,10 +489,11 @@
             <property name="vexpand">True</property>
             <child>
               <object class="GtkButton" id="buttonQuit">
-                <property name="label" translatable="yes">Quit</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">DAB switch off</property>
+                <property name="image">image4</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>

@@ -57,6 +57,9 @@
     <None Include="model\Controller.zargo" />
     <None Include="Makefile" />
     <None Include="icons\hardMute.svg" />
+    <None Include="icons\exit.png" />
+    <None Include="icons\exit.svg" />
+    <None Include="icons\hardMute.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="icons\" />
