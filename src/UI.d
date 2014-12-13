@@ -74,7 +74,8 @@ class UI : GUIBuilder
     public void init()
     {
         scaleVolume.addOnValueChanged(delegate void(Range aux)
-                                      {
+		                              {
+			                              togglebuttonMute.setActive(false);  //unmute
                                           auto v = scaleVolume.getValue;
                                           thrId.send(DABControl.DABControl.SET_VOLUME, v);
                                           debug
