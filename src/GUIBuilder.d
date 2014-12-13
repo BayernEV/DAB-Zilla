@@ -2,6 +2,7 @@ module GUIBuilder;
 
 import gtk.Builder;
 import gtk.Button;
+import gtk.ToggleButton;
 import gtk.Label;
 import gtk.Entry;
 import gtk.ProgressBar;
@@ -127,6 +128,12 @@ class GUIBuilder
      */
     private Label labelEnsemble_;
 
+    /**
+     * @uml
+     * @read
+     */
+    private ToggleButton togglebuttonMute_;
+
     public this(string[] args)
     {
         auto gladefile = "glade/DAB.glade";
@@ -142,7 +149,7 @@ class GUIBuilder
 
         if (w !is null)
             {
-                w.setTitle("DABZilla Version 0.3.3");
+                w.setTitle("DABZilla Version 0.4.0");
                 w.addOnHide( delegate void(Widget aux){ exit(0); } );
 
                 scaleVolume_ = cast(Scale)g.getObject("scaleVolume");
@@ -159,7 +166,9 @@ class GUIBuilder
                 buttonProgramPlus_ = cast(Button)g.getObject("buttonProgramPlus");
                 assert(buttonProgramPlus_ !is null);
                 buttonProgramMinus_ = cast(Button)g.getObject("buttonProgramMinus");
-                assert(buttonProgramMinus_ !is null);
+			    assert(buttonProgramMinus_ !is null);
+			    togglebuttonMute_ = cast(ToggleButton)g.getObject("togglebuttonMute");
+			    assert(togglebuttonMute_ !is null);
                 buttonPlay_ = cast(Button)g.getObject("buttonPlay");
                 assert(buttonPlay_ !is null);
                 buttonScan_ = cast(Button)g.getObject("buttonScan");
@@ -202,10 +211,6 @@ class GUIBuilder
             }
 
         w.showAll;
-    }
-
-    public void newOperation()
-    {
     }
 
     public final Button buttonVolumePlus()
@@ -291,6 +296,11 @@ class GUIBuilder
     public final Label labelEnsemble()
     {
         return this.labelEnsemble_;
+    }
+
+    public final ToggleButton togglebuttonMute()
+    {
+        return this.togglebuttonMute_;
     }
 
 }

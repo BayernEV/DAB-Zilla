@@ -166,7 +166,8 @@ class DABController
                                {
                                    writefln("reveiveMessage by DABController msg = %1$s", msg);
                                }
-                           scan;
+                           if (msg == DABControl.DABControl.MUTE) VolumeMute;
+                           else if (msg == DABControl.DABControl.SCAN) scan;
                        },
                        (DABControl.DABControl msg, uint b)
                        {

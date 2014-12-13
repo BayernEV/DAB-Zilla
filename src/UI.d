@@ -12,6 +12,7 @@ import Store;
 import gtk.Label;
 import gtk.Range;
 import gtk.Button;
+import gtk.ToggleButton;
 import gtk.ListStore;
 import gtk.TreePath;
 import gtk.TreeView;
@@ -91,6 +92,10 @@ class UI : GUIBuilder
                                             auto v = scaleVolume.getValue;
                                             scaleVolume.setValue(v-1);
                                         } );
+        togglebuttonMute.addOnToggled( delegate void(ToggleButton aux)
+                                       {
+                                           thrId.send(DABControl.DABControl.MUTE);
+                                       } );
         buttonPlay.addOnClicked( delegate void(Button aux)
                                  {
                                      auto it = treeviewStations.getSelectedIter;

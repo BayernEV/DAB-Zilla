@@ -13,4 +13,5 @@ enum DABControl : ubyte
     SET_VOLUME,
     SET_CHANNEL,
     SCAN,
+    MUTE,
 }
