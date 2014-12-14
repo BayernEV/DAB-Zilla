@@ -313,7 +313,7 @@ class DABController
         try
             {
                 auto lenghtOfConfiguration = getSize(expandTilde("~/.dabzilla"));
-                if (lenghtOfConfiguration == 0) sendStations;
+                if (lenghtOfConfiguration < 2) sendStations;
                 else
                     {
                         writefln("lenghtOfConfiguration %s", lenghtOfConfiguration);
