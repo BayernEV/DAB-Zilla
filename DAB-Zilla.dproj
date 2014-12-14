@@ -8,6 +8,7 @@
     <PreferOneStepBuild>true</PreferOneStepBuild>
     <UseDefaultCompiler>true</UseDefaultCompiler>
     <IncrementalLinking>true</IncrementalLinking>
+    <ReleaseVersion>0.3.3</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,5 +82,6 @@
     <Compile Include="src\Keystone_mock.d" />
     <Compile Include="src\Store.d" />
     <Compile Include="src\UI.d" />
+    <Compile Include="src\RadioStation.d" />
   </ItemGroup>
 </Project>

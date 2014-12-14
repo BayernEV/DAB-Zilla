@@ -5,12 +5,14 @@ import std.string;
 import std.file;
 import std.conv;
 import std.path;
+import std.array;
 import core.thread;
 import std.concurrency;
 import std.exception;
 import DABState;
 import DABInfo;
 import DABControl;
+import RadioStation;
 version (simulation)
 {
     import Keystone_mock;
@@ -52,6 +54,8 @@ class DABController
     private dchar[150] slideShowFileName;
 
     private ubyte volume;
+
+    private RadioStation[] radioStations;
 
     /**
      * @uml
@@ -310,27 +314,54 @@ class DABController
 
     public void readStations()
     {
+        auto appRadioStation = appender!(RadioStation[]);
         try
             {
                 auto lenghtOfConfiguration = getSize(expandTilde("~/.dabzilla"));
-                if (lenghtOfConfiguration < 2) sendStations;
-                else
-                    {
-                        writefln("lenghtOfConfiguration %s", lenghtOfConfiguration);
-                    }
+                writefln("lenghtOfConfiguration %s", lenghtOfConfiguration);
             }
-        catch(Exception e) {
+        catch(Exception e)
+        {
             if (!IsSysReady) //  DAB board ready?
-                {
-                    stderr.writefln("Radio not opend");
-                }
+            {
+                stderr.writefln("Radio not opend");
+            }
             else
+            {
+                auto numberOfChannel = GetTotalProgram;
+                dchar[150] programName;
+                RadioStation rs;
+                for (uint channelIndex = 0; channelIndex < numberOfChannel; channelIndex++)
+                {
+                    foreach (ref c; programName)
+                    {
+                        c = '\0';
+                    }
+                    _GetProgramName(to!char(DAB),
+                                    channelIndex,
+                                    to!char(0),
+                                    &programName[0]);
+                    rs.number = channelIndex;
+                    int endOfString;
+                    foreach (int i, c; programName)
+                    {
+                        if (c == 0)
+                        {
+                            endOfString = i;
+                            break;
+                        }
+                    }
+                    rs.name = programName[0..endOfString];
+                    appRadioStation.put(rs);
+                }
+                debug(sendChannels) writefln("RadioStation %s", appRadioStation.data);
                 //send the list of stations
-                sendStations;
+                sendStations(appRadioStation.data);
+            }
         }
     }
 
-    public void sendStations()
+    public void sendStations(RadioStation[] stations)
     {
         auto numberOfChannel = GetTotalProgram;
         dchar[150] programName;
