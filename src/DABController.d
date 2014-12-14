@@ -351,7 +351,7 @@ class DABController
                             break;
                         }
                     }
-                    rs.name = programName[0..endOfString];
+                    rs.name = programName[0 .. endOfString];
                     appRadioStation.put(rs);
                 }
                 debug(sendChannels) writefln("RadioStation %s", appRadioStation.data);
@@ -363,56 +363,36 @@ class DABController
 
     public void sendStations(RadioStation[] stations)
     {
-        auto numberOfChannel = GetTotalProgram;
-        dchar[150] programName;
-        for (uint channelIndex = 0; channelIndex < numberOfChannel; channelIndex++)
-            {
-                foreach (ref c; programName)
+        foreach (station; stations)
+        {
+            foreach (int index, c; station.name)
                     {
-                        c = '\0';
-                    }
-                _GetProgramName(to!char(DAB),
-                                channelIndex,
-                                to!char(0),
-                                &programName[0]);
-                debug(sendChannels)
-                    {
-                        writefln("info channelIndex = %1$s,  %2$s",
-                                 channelIndex,
-                                 programName[0 .. lastIndexOf(programName, '\0')]);
-                    }
-                for (int index = 0; index < programName.length; index++)
-                    {
-                        if (programName[index] == '\0')
-                            {
-                                thrId.send(DABInfo.DABInfo.CHANNELS,
-                                           channelIndex,
-                                           index,
-                                           to!int(programName.length),
-                                           to!dchar('E'), );
-                                debug(sendChannels)
-                                    {
-                                        writefln("send %1$s index =  %2$s c = %3$s",
-                                                 DABInfo.DABInfo.CHANNELS,
-                                                 to!int(programName.length),
-                                                 programName[index]);
-                                    }
-                                break;
-                            }
                         debug(sendChannels)
                             {
                                 writefln("send %1$s, channelIndex %2$s, index =  %3$s, c = %4$s",
                                          DABInfo.DABInfo.CHANNELS,
-                                         channelIndex,
+                             station.number,
                                          index,
-                                         programName[index]
+                                         c
                                          );
                             }
                         thrId.send(DABInfo.DABInfo.CHANNELS,
-                                   channelIndex,
+                                   station.number,
                                    index,
-                                   programName[index]);
-                    }
+                                   c);
+            }
+                thrId.send(DABInfo.DABInfo.CHANNELS,
+                        station.number,
+                        to!int(station.number),
+                        to!int(station.name.length),
+                        to!dchar('E'), );
+            debug(sendChannels)
+            {
+                writefln("send end of channel %1$s index =  %2$s c = %3$s",
+                         DABInfo.DABInfo.CHANNELS,
+                         to!int(station.name.length),
+                         station.number);
+            }
             }
         sendEndOfStations;
     }
