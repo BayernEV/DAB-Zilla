@@ -310,12 +310,24 @@ class DABController
 
     public void readStations()
     {
-        if (!IsSysReady) //  DAB board ready?
+        try
             {
-                stderr.writefln("Radio not opend");
+                auto lenghtOfConfiguration = getSize(expandTilde("~/.dabzilla"));
+                if (lenghtOfConfiguration == 0) sendStations;
+                else
+                    {
+                        writefln("lenghtOfConfiguration %s", lenghtOfConfiguration);
+                    }
             }
-        //send the list of stations
-        sendStations;
+        catch(Exception e) {
+            if (!IsSysReady) //  DAB board ready?
+                {
+                    stderr.writefln("Radio not opend");
+                }
+            else
+                //send the list of stations
+                sendStations;
+        }
     }
 
     public void sendStations()
