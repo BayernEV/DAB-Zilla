@@ -4,6 +4,7 @@ import std.stdio;
 import std.string;
 import std.file;
 import std.conv;
+import std.path;
 import core.thread;
 import std.concurrency;
 import std.exception;
@@ -71,18 +72,7 @@ class DABController
                     {
                         writefln("Radio opened channel %s", channel);
                     }
-                if (!IsSysReady) // waiting for DAB board ready
-                    {
-                        stderr.writefln("Radio not opend");
-                    }
-                //setUpRadio;
-                auto totalProgram = GetTotalProgram();
-                debug
-                    {
-                        writefln("Number of Programms %1$s", totalProgram);
-                    }
-                //send the list of stations
-                sendStations;
+                readStations;
                 SetVolume(to!char(volume)); // default value
                 SetStereoMode(1);
                 if (SetBBEEQ(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) == false) {
@@ -318,6 +308,16 @@ class DABController
             }
     }
 
+    public void readStations()
+    {
+        if (!IsSysReady) //  DAB board ready?
+            {
+                stderr.writefln("Radio not opend");
+            }
+        //send the list of stations
+        sendStations;
+    }
+
     public void sendStations()
     {
         auto numberOfChannel = GetTotalProgram;
@@ -328,9 +328,9 @@ class DABController
                     {
                         c = '\0';
                     }
-                _GetProgramName(cast(char)DAB,
+                _GetProgramName(to!char(DAB),
                                 channelIndex,
-                                cast(char)0,
+                                to!char(0),
                                 &programName[0]);
                 debug(sendChannels)
                     {
@@ -371,7 +371,11 @@ class DABController
                                    programName[index]);
                     }
             }
-        // send end of channels
+        sendEndOfStations;
+    }
+
+    public void sendEndOfStations()
+    {
         thrId.send(DABInfo.DABInfo.CHANNELS,
                    to!uint(0),
                    to!int(0),
