@@ -8,7 +8,7 @@ EXEC=DABZilla
 MAKEFILE=Makefile
 
 CFLAGS=-ggdb -Wall -m32
-DFLAGS=-gc -w -m32 -I/usr/local/include/d/gtkd-2 -Isrc -debug=sendChannels
+DFLAGS=-gc -w -m32 -I/usr/local/include/d/gtkd-2 -Isrc
 LDFLAGS=-m32
 
 LIBRARIES=-L-lgtkd-2 -L-lphobos2 -L-lkeystonecomm -L-ldl

@@ -6,7 +6,9 @@ import std.file;
 import std.conv;
 import std.path;
 import std.array;
+import std.csv;
 import core.thread;
+import std.typecons;
 import std.concurrency;
 import std.exception;
 import DABState;
@@ -318,60 +320,62 @@ class DABController
         try
             {
                 auto lenghtOfConfiguration = getSize(expandTilde("~/.dabzilla"));
-                writefln("lenghtOfConfiguration %s", lenghtOfConfiguration);
+                readConfiguration;
+                sendStations(radioStations);
             }
         catch(Exception e)
-        {
-            if (!IsSysReady) //  DAB board ready?
             {
-                stderr.writefln("Radio not opend");
-            }
-            else
-            {
-                auto numberOfChannel = GetTotalProgram;
-                dchar[150] programName;
-                RadioStation rs;
-                for (uint channelIndex = 0; channelIndex < numberOfChannel; channelIndex++)
-                {
-                    foreach (ref c; programName)
+                if (!IsSysReady) //  DAB board ready?
                     {
-                        c = '\0';
+                        stderr.writefln("Radio not opend");
                     }
-                    _GetProgramName(to!char(DAB),
-                                    channelIndex,
-                                    to!char(0),
-                                    &programName[0]);
-                    rs.number = channelIndex;
-                    int endOfString;
-                    foreach (int i, c; programName)
+                else
                     {
-                        if (c == 0)
-                        {
-                            endOfString = i;
-                            break;
-                        }
+                        auto numberOfChannel = GetTotalProgram;
+                        dchar[150] programName;
+                        RadioStation rs;
+                        for (uint channelIndex = 0; channelIndex < numberOfChannel; channelIndex++)
+                            {
+                                foreach (ref c; programName)
+                                    {
+                                        c = '\0';
+                                    }
+                                _GetProgramName(to!char(DAB),
+                                                channelIndex,
+                                                to!char(0),
+                                                &programName[0]);
+                                rs.number = channelIndex;
+                                int endOfString;
+                                foreach (int i, c; programName)
+                                    {
+                                        if (c == 0)
+                                            {
+                                                endOfString = i;
+                                                break;
+                                            }
+                                    }
+                                rs.name = programName[0 .. endOfString];
+                                appRadioStation.put(rs);
+                            }
+                        debug(sendChannels) writefln("RadioStation %s", appRadioStation.data);
+                        //send the list of stations
+                        storeConfiguration(appRadioStation.data);
+                        sendStations(appRadioStation.data);
                     }
-                    rs.name = programName[0 .. endOfString];
-                    appRadioStation.put(rs);
-                }
-                debug(sendChannels) writefln("RadioStation %s", appRadioStation.data);
-                //send the list of stations
-                sendStations(appRadioStation.data);
             }
-        }
     }
 
     public void sendStations(RadioStation[] stations)
     {
         foreach (station; stations)
-        {
-            foreach (int index, c; station.name)
+            {
+                foreach (int index, c; station.name)
                     {
                         debug(sendChannels)
                             {
                                 writefln("send %1$s, channelIndex %2$s, index =  %3$s, c = %4$s",
                                          DABInfo.DABInfo.CHANNELS,
-                             station.number,
+                                         station.number,
                                          index,
                                          c
                                          );
@@ -380,21 +384,51 @@ class DABController
                                    station.number,
                                    index,
                                    c);
-            }
+                    }
                 thrId.send(DABInfo.DABInfo.CHANNELS,
-                        station.number,
-                        to!int(station.number),
-                        to!int(station.name.length),
-                        to!dchar('E'), );
-            debug(sendChannels)
-            {
-                writefln("send end of channel %1$s index =  %2$s c = %3$s",
-                         DABInfo.DABInfo.CHANNELS,
-                         to!int(station.name.length),
-                         station.number);
-            }
+                           station.number,
+                           to!int(station.number),
+                           to!int(station.name.length),
+                           to!dchar('E'), );
+                debug(sendChannels)
+                    {
+                        writefln("send end of channel %1$s index =  %2$s, station.number = %3$s",
+                                 DABInfo.DABInfo.CHANNELS,
+                                 to!int(station.name.length),
+                                 station.number);
+                    }
             }
         sendEndOfStations;
+    }
+
+    public void storeConfiguration(RadioStation[] stations)
+    {
+        auto f = File(expandTilde("~/.dabzilla"), "w");
+        foreach (station; stations)
+            {
+                f.writefln("%1$s,\"%2$s\",1", station.number, station.name);
+            }
+        f.close;
+    }
+
+    public void readConfiguration()
+    {
+        auto appRadioStation = appender!(RadioStation[]);
+        RadioStation rs;
+        auto s = cast(string)read(expandTilde("~/.dabzilla"));
+        foreach(record; csvReader!(Tuple!(uint, string, uint))(s))
+            {
+                if (record[2])
+                    {
+                        rs.number = to!uint(record[0]);
+                        rs.name = to!(dchar[])("");
+                        foreach (c; record[1])
+                            rs.name = rs.name ~ to!dchar(c);
+                        appRadioStation.put(rs);
+                    }
+            }
+        debug(sendChannels) writefln("%s", appRadioStation.data);
+        radioStations = appRadioStation.data;
     }
 
     public void sendEndOfStations()

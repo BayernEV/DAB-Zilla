@@ -74,8 +74,8 @@ class UI : GUIBuilder
     public void init()
     {
         scaleVolume.addOnValueChanged(delegate void(Range aux)
-		                              {
-			                              togglebuttonMute.setActive(false);  //unmute
+                                      {
+                                          togglebuttonMute.setActive(false);  //unmute
                                           auto v = scaleVolume.getValue;
                                           thrId.send(DABControl.DABControl.SET_VOLUME, v);
                                           debug
@@ -186,7 +186,7 @@ class UI : GUIBuilder
                        {
                            debug(receive) {
                                writefln("reveiveMessage by UI info = %1$s, "~
-                                        "channelIndex = %2$s, index = %3$s, v = %4$s",
+                                        "channelIndex = %2$s, index = %3$s, v = %4$s(%4$x)",
                                         info,
                                         channelIndex,
                                         index, v);
@@ -282,11 +282,13 @@ class UI : GUIBuilder
 
     public void fillStore(uint channelIndex, int index, dchar c)
     {
-        if (channelIndex == 0 && index == 0)
+        if (channelIndex == 0 && index == 0)  // first or last message
             {
                 if (c == '\0')
                     {
                         // end of channel list
+                        storeDAB.appendRecord(storeCollect.channel,
+                                              storeCollect.stationName);
                         treeviewStations.setModel(storeDAB);
                         return;
                     }

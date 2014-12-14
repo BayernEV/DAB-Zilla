@@ -1,6 +1,3 @@
-// $HeadURL: svn://127.0.0.1/DABZilla/trunk/src/DABZilla.d $
-// $Id: DABZilla.d 30 2014-10-12 04:36:03Z evoigt $
-
 module DABZilla;
 
 /*
