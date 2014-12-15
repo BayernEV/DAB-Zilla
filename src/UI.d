@@ -173,7 +173,7 @@ class UI : GUIBuilder
                            switch (info) {
                            case(DABInfo.DABInfo.SIGNAL_STRENGTH) :
                                auto signalStrength = to!double(v);
-                               progressbarSignalStrength.setFraction(signalStrength/100.0);
+					           levelbarSignalStrength.setValue(signalStrength/100.0);
                                labelSignalStrength.setText(format("%s %%", signalStrength));
                                break;
                            default :

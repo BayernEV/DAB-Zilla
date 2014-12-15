@@ -5,7 +5,7 @@ import gtk.Button;
 import gtk.ToggleButton;
 import gtk.Label;
 import gtk.Entry;
-import gtk.ProgressBar;
+import gtk.LevelBar;
 import gtk.TextView;
 import gtk.Image;
 import gtk.TextBuffer;
@@ -106,7 +106,7 @@ class GUIBuilder
      * @uml
      * @read
      */
-    private ProgressBar progressbarSignalStrength_;
+    private LevelBar levelbarSignalStrength_;
 
     private uint currentStoreIndex = 0;
 
@@ -185,8 +185,8 @@ class GUIBuilder
 
                 labelEnsemble_.setMarkup("Ensemble:");
 
-                progressbarSignalStrength_ = cast(ProgressBar)g.getObject("progressbarSignalStrength");
-                assert(progressbarSignalStrength_ !is null);
+                levelbarSignalStrength_ = cast(LevelBar)g.getObject("levelbarSignalStrength");
+                assert(levelbarSignalStrength_ !is null);
                 labelSignalStrength_ = cast(Label)g.getObject("labelSignalStrength");
                 assert(labelSignalStrength_ !is null);
                 imageSlideShow_ = cast(Image)g.getObject("imageSlideShow");
@@ -278,9 +278,9 @@ class GUIBuilder
         return this.labelSignalStrength_;
     }
 
-    public final ProgressBar progressbarSignalStrength()
+    public final LevelBar levelbarSignalStrength()
     {
-        return this.progressbarSignalStrength_;
+        return this.levelbarSignalStrength_;
     }
 
     public final Button buttonScan()
