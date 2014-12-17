@@ -67,6 +67,7 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkFrame" id="frame1">
+                <property name="height_request">-1</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_top">4</property>
@@ -81,17 +82,23 @@
                       <object class="GtkBox" id="box3">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="vexpand">True</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkLevelBar" id="levelbarSignalStrength">
+                            <property name="height_request">18</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="max_value">100</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
                             <property name="fill">True</property>
                             <property name="position">0</property>
                           </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
                         </child>
                         <child>
                           <object class="GtkLabel" id="labelSignalStrength">
@@ -316,10 +323,11 @@
         </child>
         <child>
           <object class="GtkFrame" id="frame4">
+            <property name="width_request">193</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="label_xalign">0</property>
-            <property name="shadow_type">none</property>
+            <property name="label_yalign">1</property>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow2">
                 <property name="visible">True</property>
