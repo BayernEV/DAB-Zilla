@@ -48,7 +48,7 @@ int main(string[] args)
                    "channel|c", &channel,
                    "volume|v", &volume);
             if (args.length > 1) {
-                stderr.writefln("%1$s: invalid option(s) %2$s", args[0], args[1 .. $]);
+                stderr.writefln("%1$s: invalid argument(s) %2$s", args[0], args[1 .. $]);
             }
         }
     catch (Exception e)
