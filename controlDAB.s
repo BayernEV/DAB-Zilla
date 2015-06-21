@@ -3414,775 +3414,791 @@ L2AA8:  add    $0x24,%esp
         pop    %ebp
         ret    
 
+_Z8FMSearchc:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x54,%esp
+       	call   __x86.get_pc_thunk.bx
+    	add    $0x4d66,%ebx
+        mov    0x8(%ebp),%eax
+        mov    %al,-0x2c(%ebp)
+    	mov    %gs:0x14,%eax
+        mov    %eax,-0xc(%ebp)
+        xor    %eax,%eax
+        movb   $0xfe,-0x1c(%ebp)
+        movb   $0x1,-0x1b(%ebp)
+        movb   $0x2,-0x1a(%ebp)
+        movb   $0x1,-0x19(%ebp)
+        movb   $0x0,-0x18(%ebp)
+        movb   $0x1,-0x17(%ebp)
+        movb   $0x0,-0x16(%ebp)
+        movb   $0xfd,-0x15(%ebp)
+ 	movl   $0x0,-0x14(%ebp)
+ 	movl   $0x0,-0x10(%ebp)
+        movzbl -0x2c(%ebp),%eax
+        mov    %al,-0x16(%ebp)
+ 	movzbl 0xd0(%ebx),%eax
+        test   %al,%al
+        je     L2B16
+       	call   _Z8HardMutev@plt
+L2B16:  mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x0,0x10(%esp)
+        lea    -0x20(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x8,0x8(%esp)
+        lea    -0x1c(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z16WriteSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L2B52
+       	mov    $0x0,%eax
+        jmp    L2BBF
+L2B52:  mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x1,0x10(%esp)
+        lea    -0x20(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x8,0x8(%esp)
+        lea    -0x14(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z15ReadSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L2B8E
+       	mov    $0x0,%eax
+        jmp    L2BBF
+L2B8E:  mov    -0x20(%ebp),%eax
+        mov    %eax,0x4(%esp)
+        lea    -0x14(%ebp),%eax
+        mov    %eax,(%esp)
+       	call   _Z10GoodHeaderPhi@plt
+        test   %al,%al
+        je     L2BBA
+        movzbl -0x12(%ebp),%eax
+        cmp    $0x1,%al
+        jne    L2BB3
+       	mov    $0x1,%eax
+        jmp    L2BBF
+L2BB3:  mov    $0x0,%eax
+        jmp    L2BBF
+L2BBA:  mov    $0x0,%eax
+L2BBF:  mov    -0xc(%ebp),%edx
+ 	xor    %gs:0x14,%edx
+        je     L2BDA
+        jmp    L2BD5
+        mov    %eax,(%esp)
+       	call   _Unwind_Resume@plt
+L2BD5:  call   __stack_chk_fail_local
+L2BDA:  add    $0x54,%esp
+        pop    %ebx
+        pop    %ebp
+        ret    
 
+
+_Z13DABAutoSearchhh:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x54,%esp
+       	call   __x86.get_pc_thunk.bx
+    	add    $0x4c34,%ebx
+        mov    0x8(%ebp),%edx
+        mov    0xc(%ebp),%eax
+        mov    %dl,-0x2c(%ebp)
+        mov    %al,-0x30(%ebp)
+    	mov    %gs:0x14,%eax
+        mov    %eax,-0xc(%ebp)
+        xor    %eax,%eax
+        movb   $0xfe,-0x15(%ebp)
+        movb   $0x1,-0x14(%ebp)
+        movb   $0x3,-0x13(%ebp)
+        movb   $0x1,-0x12(%ebp)
+        movb   $0x0,-0x11(%ebp)
+        movb   $0x2,-0x10(%ebp)
+        movb   $0x0,-0xf(%ebp)
+        movb   $0x0,-0xe(%ebp)
+        movb   $0xfd,-0xd(%ebp)
+ 	movl   $0x0,-0x1d(%ebp)
+ 	movl   $0x0,-0x19(%ebp)
+ 	movzbl 0xd0(%ebx),%eax
+        test   %al,%al
+        je     L2C4B
+       	call   _Z8HardMutev@plt
+L2C4B:  call   _Z13ClearDatabasev@plt
+        movzbl -0x2c(%ebp),%eax
+        mov    %al,-0xf(%ebp)
+        movzbl -0x30(%ebp),%eax
+        mov    %al,-0xe(%ebp)
+    	mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x0,0x10(%esp)
+        lea    -0x24(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x9,0x8(%esp)
+        lea    -0x15(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z16WriteSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L2C9A
+       	mov    $0x0,%eax
+        jmp    L2D07
+L2C9A:  mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x1,0x10(%esp)
+        lea    -0x24(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x8,0x8(%esp)
+        lea    -0x1d(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z15ReadSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L2CD6
+       	mov    $0x0,%eax
+        jmp    L2D07
+L2CD6:  mov    -0x24(%ebp),%eax
+        mov    %eax,0x4(%esp)
+        lea    -0x1d(%ebp),%eax
+        mov    %eax,(%esp)
+       	call   _Z10GoodHeaderPhi@plt
+        test   %al,%al
+        je     L2D02
+        movzbl -0x1b(%ebp),%eax
+        cmp    $0x1,%al
+        jne    L2CFB
+       	mov    $0x1,%eax
+        jmp    L2D07
+L2CFB:  mov    $0x0,%eax
+        jmp    L2D07
+L2D02:  mov    $0x0,%eax
+L2D07:  mov    -0xc(%ebp),%edx
+ 	xor    %gs:0x14,%edx
+        je     L2D22
+        jmp    L2D1D
+        mov    %eax,(%esp)
+       	call   _Unwind_Resume@plt
+L2D1D:  call   __stack_chk_fail_local
+L2D22:  add    $0x54,%esp
+        pop    %ebx
+        pop    %ebp
+        ret
+
+ _Z20DABAutoSearchNoClearhh:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x54,%esp
+       	call   __x86.get_pc_thunk.bx
+    	add    $0x4aec,%ebx
+        mov    0x8(%ebp),%edx
+        mov    0xc(%ebp),%eax
+        mov    %dl,-0x2c(%ebp)
+        mov    %al,-0x30(%ebp)
+    	mov    %gs:0x14,%eax
+        mov    %eax,-0xc(%ebp)
+        xor    %eax,%eax
+        movb   $0xfe,-0x15(%ebp)
+        movb   $0x1,-0x14(%ebp)
+        movb   $0x3,-0x13(%ebp)
+        movb   $0x1,-0x12(%ebp)
+        movb   $0x0,-0x11(%ebp)
+        movb   $0x2,-0x10(%ebp)
+        movb   $0x0,-0xf(%ebp)
+        movb   $0x0,-0xe(%ebp)
+        movb   $0xfd,-0xd(%ebp)
+ 	movl   $0x0,-0x1d(%ebp)
+ 	movl   $0x0,-0x19(%ebp)
+ 	movzbl 0xd0(%ebx),%eax
+        test   %al,%al
+        je     L2D93
+       	call   _Z8HardMutev@plt
+L2D93:  movzbl -0x2c(%ebp),%eax
+        mov    %al,-0xf(%ebp)
+        movzbl -0x30(%ebp),%eax
+        mov    %al,-0xe(%ebp)
+    	mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x0,0x10(%esp)
+        lea    -0x24(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x9,0x8(%esp)
+        lea    -0x15(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z16WriteSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L2DDD
+       	mov    $0x0,%eax
+        jmp    L2E4A
+L2DDD:  mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x1,0x10(%esp)
+        lea    -0x24(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x8,0x8(%esp)
+        lea    -0x1d(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z15ReadSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L2E19
+       	mov    $0x0,%eax
+        jmp    L2E4A
+L2E19:  mov    -0x24(%ebp),%eax
+        mov    %eax,0x4(%esp)
+        lea    -0x1d(%ebp),%eax
+        mov    %eax,(%esp)
+       	call   _Z10GoodHeaderPhi@plt
+        test   %al,%al
+        je     L2E45
+        movzbl -0x1b(%ebp),%eax
+        cmp    $0x1,%al
+        jne    L2E3E
+       	mov    $0x1,%eax
+        jmp    L2E4A
+L2E3E:  mov    $0x0,%eax
+        jmp    L2E4A
+L2E45:  mov    $0x0,%eax
+L2E4A:  mov    -0xc(%ebp),%edx
+ 	xor    %gs:0x14,%edx
+        je     L2E65
+        jmp    L2E60
+        mov    %eax,(%esp)
+       	call   _Unwind_Resume@plt
+L2E60:  call   __stack_chk_fail_local
+L2E65:  add    $0x54,%esp
+        pop    %ebx
+        pop    %ebp
+        ret
+
+_Z12GetPlayIndexv:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x44,%esp
+       	call   __x86.get_pc_thunk.bx
+    	add    $0x49a9,%ebx
+    	mov    %gs:0x14,%eax
+        mov    %eax,-0xc(%ebp)
+        xor    %eax,%eax
+        movb   $0xfe,-0x1e(%ebp)
+        movb   $0x1,-0x1d(%ebp)
+        movb   $0x7,-0x1c(%ebp)
+        movb   $0x1,-0x1b(%ebp)
+        movb   $0x0,-0x1a(%ebp)
+        movb   $0x0,-0x19(%ebp)
+        movb   $0xfd,-0x18(%ebp)
+ 	movl   $0x0,-0x17(%ebp)
+ 	movl   $0x0,-0x13(%ebp)
+    	movw   $0x0,-0xf(%ebp)
+        movb   $0x0,-0xd(%ebp)
+    	mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x0,0x10(%esp)
+        lea    -0x28(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x7,0x8(%esp)
+        lea    -0x1e(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z16WriteSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L2EFB
+       	mov    $0xffffffff,%eax
+       	jmp    L2F87
+L2EFB:  mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x1,0x10(%esp)
+        lea    -0x28(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0xb,0x8(%esp)
+        lea    -0x17(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z15ReadSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L2F37
+       	mov    $0xffffffff,%eax
+        jmp    L2F87
+L2F37:  mov    -0x28(%ebp),%eax
+        mov    %eax,0x4(%esp)
+        lea    -0x17(%ebp),%eax
+        mov    %eax,(%esp)
+       	call   _Z10GoodHeaderPhi@plt
+        test   %al,%al
+        je     L2F82
+        movzbl -0x11(%ebp),%eax
+        movzbl %al,%eax
+        mov    %eax,%edx
+        shl    $0x18,%edx
+        movzbl -0x10(%ebp),%eax
+        movzbl %al,%eax
+        shl    $0x10,%eax
+        or     %eax,%edx
+        movzbl -0xf(%ebp),%eax
+        movzbl %al,%eax
+        shl    $0x8,%eax
+        or     %eax,%edx
+        movzbl -0xe(%ebp),%eax
+        movzbl %al,%eax
+        or     %edx,%eax
+        mov    %eax,-0x24(%ebp)
+        mov    -0x24(%ebp),%eax
+        jmp    L2F87
+L2F82:  mov    $0xffffffff,%eax
+L2F87:  mov    -0xc(%ebp),%edx
+ 	xor    %gs:0x14,%edx
+        je     L2FA2
+        jmp    L2F9D
+        mov    %eax,(%esp)
+       	call   _Unwind_Resume@plt
+L2F9D:  call   __stack_chk_fail_local
+L2FA2:  add    $0x44,%esp
+        pop    %ebx
+        pop    %ebp
+        ret    
+
+_Z9SetPresetccm:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x64,%esp
+       	call   18fb <__x86.get_pc_thunk.bx>
+    	add    $0x486c,%ebx
+        mov    0x8(%ebp),%edx
+        mov    0xc(%ebp),%eax
+        mov    %dl,-0x3c(%ebp)
+        mov    %al,-0x40(%ebp)
+    	mov    %gs:0x14,%eax
+        mov    %eax,-0xc(%ebp)
+        xor    %eax,%eax
+        movb   $0xfe,-0x19(%ebp)
+        movb   $0x1,-0x18(%ebp)
+        movb   $0x21,-0x17(%ebp)
+        movb   $0x1,-0x16(%ebp)
+        movb   $0x0,-0x15(%ebp)
+        movb   $0x6,-0x14(%ebp)
+        movb   $0x0,-0x13(%ebp)
+        movb   $0x0,-0x12(%ebp)
+        movb   $0x0,-0x11(%ebp)
+        movb   $0x0,-0x10(%ebp)
+        movb   $0x0,-0xf(%ebp)
+        movb   $0x0,-0xe(%ebp)
+        movb   $0xfd,-0xd(%ebp)
+ 	movl   $0x0,-0x21(%ebp)
+ 	movl   $0x0,-0x1d(%ebp)
+        cmpb   $0x0,-0x3c(%ebp)
+        je     L301F
+        cmpb   $0x1,-0x3c(%ebp)
+        jne    L302E
+L301F:  movzbl -0x3c(%ebp),%eax
+        mov    %al,-0x13(%ebp)
+        cmpb   $0x0,-0x40(%ebp)
+        jns    L3038
+        jmp    L3051
+L302E:  mov    $0x0,%eax
+       	jmp    L314C
+L3038:  cmpb   $0x9,-0x40(%ebp)
+        jg     L3051
+        movzbl -0x40(%ebp),%eax
+        mov    %al,-0x12(%ebp)
+        mov    0x10(%ebp),%eax
+       	cmp    $0x30d3f,%eax
+        jbe    L305B
+        jmp    L30B4
+L3051:  mov    $0x0,%eax
+       	jmp    L314C
+L305B:  mov    0x10(%ebp),%eax
+        mov    %eax,-0x25(%ebp)
+        movzbl -0x22(%ebp),%eax
+        mov    %al,-0x11(%ebp)
+        movzbl -0x23(%ebp),%eax
+        mov    %al,-0x10(%ebp)
+        movzbl -0x24(%ebp),%eax
+        mov    %al,-0xf(%ebp)
+        movzbl -0x25(%ebp),%eax
+        mov    %al,-0xe(%ebp)
+    	mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x0,0x10(%esp)
+        lea    -0x2c(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0xd,0x8(%esp)
+        lea    -0x19(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z16WriteSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L30C8
+        jmp    L30BE
+L30B4:  mov    $0x0,%eax
+       	jmp    L314C
+L30BE:  mov    $0x0,%eax
+       	jmp    L314C
+L30C8:  mov    -0x2c(%ebp),%eax
+        cmp    $0xd,%eax
+        je     L30D7
+       	mov    $0x0,%eax
+        jmp    L314C
+L30D7:  mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x1,0x10(%esp)
+        lea    -0x2c(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x8,0x8(%esp)
+        lea    -0x21(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z15ReadSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L3113
+       	mov    $0x0,%eax
+        jmp    L314C
+L3113:  mov    -0x2c(%ebp),%eax
+        mov    %eax,0x4(%esp)
+        lea    -0x21(%ebp),%eax
+        mov    %eax,(%esp)
+       	call   _Z10GoodHeaderPhi@plt
+        test   %al,%al
+        je     L3147
+        movzbl -0x20(%ebp),%eax
+        test   %al,%al
+        jne    L3140
+        movzbl -0x1f(%ebp),%eax
+        cmp    $0x1,%al
+        jne    L3140
+       	mov    $0x1,%eax
+        jmp    L314C
+L3140:  mov    $0x0,%eax
+    	jmp    L314C
+L3147:  mov    $0x0,%eax
+L314C:  mov    -0xc(%ebp),%edx
+ 	xor    %gs:0x14,%edx
+        je     L3167
+        jmp    L3162
+        mov    %eax,(%esp)
+       	call   _Unwind_Resume@plt
+L3162:  call   __stack_chk_fail_local
+L3167:  add    $0x64,%esp
+        pop    %ebx
+        pop    %ebp
+        ret
+
+
+_Z9GetPresetcc:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x54,%esp
+       	call   18fb <__x86.get_pc_thunk.bx>
+    	add    $0x46a7,%ebx
+        mov    0x8(%ebp),%edx
+        mov    0xc(%ebp),%eax
+        mov    %dl,-0x2c(%ebp)
+        mov    %al,-0x30(%ebp)
+    	mov    %gs:0x14,%eax
+        mov    %eax,-0xc(%ebp)
+        xor    %eax,%eax
+        movb   $0xfe,-0x20(%ebp)
+        movb   $0x1,-0x1f(%ebp)
+        movb   $0x22,-0x1e(%ebp)
+        movb   $0x1,-0x1d(%ebp)
+        movb   $0x0,-0x1c(%ebp)
+        movb   $0x2,-0x1b(%ebp)
+        movb   $0x0,-0x1a(%ebp)
+        movb   $0x0,-0x19(%ebp)
+        movb   $0xfd,-0x18(%ebp)
+ 	movl   $0x0,-0x17(%ebp)
+ 	movl   $0x0,-0x13(%ebp)
+    	movw   $0x0,-0xf(%ebp)
+        movb   $0x0,-0xd(%ebp)
+        cmpb   $0x0,-0x2c(%ebp)
+        je     L31DE
+        cmpb   $0x1,-0x2c(%ebp)
+        jne    L31ED
+L31DE:  movzbl -0x2c(%ebp),%eax
+        mov    %al,-0x1a(%ebp)
+        cmpb   $0x0,-0x30(%ebp)
+        jns    L31F7
+        jmp    L323B
+L31ED:  mov    $0xffffffff,%eax
+       	jmp    L3304
+L31F7:  cmpb   $0x9,-0x30(%ebp)
+        jg     L323B
+        movzbl -0x30(%ebp),%eax
+        mov    %al,-0x19(%ebp)
+    	mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x0,0x10(%esp)
+        lea    -0x28(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x9,0x8(%esp)
+        lea    -0x20(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z16WriteSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L324F
+        jmp    L3245
+L323B:  mov    $0xffffffff,%eax
+       	jmp    L3304
+L3245:  mov    $0xffffffff,%eax
+       	jmp    L3304
+L324F:  mov    -0x28(%ebp),%eax
+        cmp    $0x9,%eax
+        je     L3261
+       	mov    $0xffffffff,%eax
+       	jmp    L3304
+L3261:  mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x1,0x10(%esp)
+        lea    -0x28(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0xb,0x8(%esp)
+        lea    -0x17(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z15ReadSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L329D
+       	mov    $0xffffffff,%eax
+        jmp    L3304
+L329D:  mov    -0x28(%ebp),%eax
+        mov    %eax,0x4(%esp)
+        lea    -0x17(%ebp),%eax
+        mov    %eax,(%esp)
+       	call   _Z10GoodHeaderPhi@plt
+        test   %al,%al
+        je     L32FF
+        movzbl -0x15(%ebp),%eax
+        cmp    $0x22,%al
+        jne    L32F8
+        movzbl -0x12(%ebp),%eax
+        cmp    $0x4,%al
+        jne    L32F8
+        movzbl -0x11(%ebp),%eax
+        movzbl %al,%eax
+        mov    %eax,%edx
+        shl    $0x18,%edx
+        movzbl -0x10(%ebp),%eax
+        movzbl %al,%eax
+        shl    $0x10,%eax
+        or     %eax,%edx
+        movzbl -0xf(%ebp),%eax
+        movzbl %al,%eax
+        shl    $0x8,%eax
+        or     %eax,%edx
+        movzbl -0xe(%ebp),%eax
+        movzbl %al,%eax
+        or     %edx,%eax
+        mov    %eax,-0x24(%ebp)
+        mov    -0x24(%ebp),%eax
+        jmp    L3304
+L32F8:  mov    $0xffffffff,%eax
+        jmp    L3304
+L32FF:  mov    $0xffffffff,%eax
+L3304:  mov    -0xc(%ebp),%edx
+ 	xor    %gs:0x14,%edx
+        je     L331F
+        jmp    L331A
+        mov    %eax,(%esp)
+       	call   _Unwind_Resume@plt
+L331A:  call   __stack_chk_fail_local
+L331F:  add    $0x54,%esp
+        pop    %ebx
+        pop    %ebp
+        ret
         
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,054h
-		call	  L10000011B
-		add	EBX,04D66h
-		mov	EAX,8[EBP]
-		mov	-02Ch[EBP],AL
-		mov	EAX,GS:[014h]
-		mov	-0Ch[EBP],EAX
-		xor	EAX,EAX
-		mov	byte ptr -01Ch[EBP],0FEh
-		mov	byte ptr -01Bh[EBP],1
-		mov	byte ptr -01Ah[EBP],2
-		mov	byte ptr -019h[EBP],1
-		mov	byte ptr -018h[EBP],0
-		mov	byte ptr -017h[EBP],1
-		mov	byte ptr -016h[EBP],0
-		mov	byte ptr -015h[EBP],0FDh
-		mov	dword ptr -014h[EBP],0
-		mov	dword ptr -010h[EBP],0
-		movzx	EAX,byte ptr -02Ch[EBP]
-		mov	-016h[EBP],AL
-		movzx	EAX,byte ptr 0D0h[EBX]
-		test	AL,AL
-		je	L2B16
-		call	  LFFFFFF30
-L2B16:		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],0
-		lea	EDX,-020h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],8
-		lea	EDX,-01Ch[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFE00
-		xor	EAX,1
-		test	AL,AL
-		je	L2B52
-		mov	EAX,0
-		jmp short	L2BBF
-L2B52:		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],1
-		lea	EDX,-020h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],8
-		lea	EDX,-014h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFD30
-		xor	EAX,1
-		test	AL,AL
-		je	L2B8E
-		mov	EAX,0
-		jmp short	L2BBF
-L2B8E:		mov	EAX,-020h[EBP]
-		mov	4[ESP],EAX
-		lea	EAX,-014h[EBP]
-		mov	[ESP],EAX
-		call	  LFFFFFEE0
-		test	AL,AL
-		je	L2BBA
-		movzx	EAX,byte ptr -012h[EBP]
-		cmp	AL,1
-		jne	L2BB3
-		mov	EAX,1
-		jmp short	L2BBF
-L2BB3:		mov	EAX,0
-		jmp short	L2BBF
-L2BBA:		mov	EAX,0
-L2BBF:		mov	EDX,-0Ch[EBP]
-		xor	EDX,GS:[014h]
-		je	L2BDA
-		jmp short	L2BD5
-		mov	[ESP],EAX
-		call	  LFFFFFFA0
-L2BD5:		call	  L5550
-L2BDA:		add	ESP,054h
-		pop	EBX
-		pop	EBP
-		ret
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,054h
-		call	  L10000011B
-		add	EBX,04C34h
-		mov	EDX,8[EBP]
-		mov	EAX,0Ch[EBP]
-		mov	-02Ch[EBP],DL
-		mov	-030h[EBP],AL
-		mov	EAX,GS:[014h]
-		mov	-0Ch[EBP],EAX
-		xor	EAX,EAX
-		mov	byte ptr -015h[EBP],0FEh
-		mov	byte ptr -014h[EBP],1
-		mov	byte ptr -013h[EBP],3
-		mov	byte ptr -012h[EBP],1
-		mov	byte ptr -011h[EBP],0
-		mov	byte ptr -010h[EBP],2
-		mov	byte ptr -0Fh[EBP],0
-		mov	byte ptr -0Eh[EBP],0
-		mov	byte ptr -0Dh[EBP],0FDh
-		mov	dword ptr -01Dh[EBP],0
-		mov	dword ptr -019h[EBP],0
-		movzx	EAX,byte ptr 0D0h[EBX]
-		test	AL,AL
-		je	L2C4B
-		call	  LFFFFFF30
-L2C4B:		call	  LFFFFFF60
-		movzx	EAX,byte ptr -02Ch[EBP]
-		mov	-0Fh[EBP],AL
-		movzx	EAX,byte ptr -030h[EBP]
-		mov	-0Eh[EBP],AL
-		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],0
-		lea	EDX,-024h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],9
-		lea	EDX,-015h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFE00
-		xor	EAX,1
-		test	AL,AL
-		je	L2C9A
-		mov	EAX,0
-		jmp short	L2D07
-L2C9A:		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],1
-		lea	EDX,-024h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],8
-		lea	EDX,-01Dh[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFD30
-		xor	EAX,1
-		test	AL,AL
-		je	L2CD6
-		mov	EAX,0
-		jmp short	L2D07
-L2CD6:		mov	EAX,-024h[EBP]
-		mov	4[ESP],EAX
-		lea	EAX,-01Dh[EBP]
-		mov	[ESP],EAX
-		call	  LFFFFFEE0
-		test	AL,AL
-		je	L2D02
-		movzx	EAX,byte ptr -01Bh[EBP]
-		cmp	AL,1
-		jne	L2CFB
-		mov	EAX,1
-		jmp short	L2D07
-L2CFB:		mov	EAX,0
-		jmp short	L2D07
-L2D02:		mov	EAX,0
-L2D07:		mov	EDX,-0Ch[EBP]
-		xor	EDX,GS:[014h]
-		je	L2D22
-		jmp short	L2D1D
-		mov	[ESP],EAX
-		call	  LFFFFFFA0
-L2D1D:		call	  L5550
-L2D22:		add	ESP,054h
-		pop	EBX
-		pop	EBP
-		ret
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,054h
-		call	  L10000011B
-		add	EBX,04AECh
-		mov	EDX,8[EBP]
-		mov	EAX,0Ch[EBP]
-		mov	-02Ch[EBP],DL
-		mov	-030h[EBP],AL
-		mov	EAX,GS:[014h]
-		mov	-0Ch[EBP],EAX
-		xor	EAX,EAX
-		mov	byte ptr -015h[EBP],0FEh
-		mov	byte ptr -014h[EBP],1
-		mov	byte ptr -013h[EBP],3
-		mov	byte ptr -012h[EBP],1
-		mov	byte ptr -011h[EBP],0
-		mov	byte ptr -010h[EBP],2
-		mov	byte ptr -0Fh[EBP],0
-		mov	byte ptr -0Eh[EBP],0
-		mov	byte ptr -0Dh[EBP],0FDh
-		mov	dword ptr -01Dh[EBP],0
-		mov	dword ptr -019h[EBP],0
-		movzx	EAX,byte ptr 0D0h[EBX]
-		test	AL,AL
-		je	L2D93
-		call	  LFFFFFF30
-L2D93:		movzx	EAX,byte ptr -02Ch[EBP]
-		mov	-0Fh[EBP],AL
-		movzx	EAX,byte ptr -030h[EBP]
-		mov	-0Eh[EBP],AL
-		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],0
-		lea	EDX,-024h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],9
-		lea	EDX,-015h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFE00
-		xor	EAX,1
-		test	AL,AL
-		je	L2DDD
-		mov	EAX,0
-		jmp short	L2E4A
-L2DDD:		mov	EAX,0FFFFFFB8h[EBX]
-_Z14GetProgramNameclcPw:
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],1
-		lea	EDX,-024h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],8
-		lea	EDX,-01Dh[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFD30
-		xor	EAX,1
-		test	AL,AL
-		je	L2E19
-		mov	EAX,0
-		jmp short	L2E4A
-L2E19:		mov	EAX,-024h[EBP]
-		mov	4[ESP],EAX
-		lea	EAX,-01Dh[EBP]
-		mov	[ESP],EAX
-		call	  LFFFFFEE0
-		test	AL,AL
-		je	L2E45
-		movzx	EAX,byte ptr -01Bh[EBP]
-		cmp	AL,1
-		jne	L2E3E
-		mov	EAX,1
-		jmp short	L2E4A
-L2E3E:		mov	EAX,0
-		jmp short	L2E4A
-L2E45:		mov	EAX,0
-L2E4A:		mov	EDX,-0Ch[EBP]
-		xor	EDX,GS:[014h]
-		je	L2E65
-		jmp short	L2E60
-		mov	[ESP],EAX
-		call	  LFFFFFFA0
-L2E60:		call	  L5550
-L2E65:		add	ESP,054h
-		pop	EBX
-		pop	EBP
-		ret
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,044h
-		call	  L10000011B
-		add	EBX,049A9h
-		mov	EAX,GS:[014h]
-		mov	-0Ch[EBP],EAX
-		xor	EAX,EAX
-		mov	byte ptr -01Eh[EBP],0FEh
-		mov	byte ptr -01Dh[EBP],1
-		mov	byte ptr -01Ch[EBP],7
-		mov	byte ptr -01Bh[EBP],1
-		mov	byte ptr -01Ah[EBP],0
-		mov	byte ptr -019h[EBP],0
-		mov	byte ptr -018h[EBP],0FDh
-		mov	dword ptr -017h[EBP],0
-		mov	dword ptr -013h[EBP],0
-		mov	word ptr -0Fh[EBP],0
-		mov	byte ptr -0Dh[EBP],0
-		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],0
-		lea	EDX,-028h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],7
-		lea	EDX,-01Eh[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFE00
-		xor	EAX,1
-		test	AL,AL
-		je	L2EFB
-		mov	EAX,0FFFFFFFFh
-		jmp	  L2F87
-L2EFB:		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],1
-		lea	EDX,-028h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],0Bh
-		lea	EDX,-017h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFD30
-		xor	EAX,1
-		test	AL,AL
-		je	L2F37
-		mov	EAX,0FFFFFFFFh
-		jmp short	L2F87
-L2F37:		mov	EAX,-028h[EBP]
-		mov	4[ESP],EAX
-		lea	EAX,-017h[EBP]
-		mov	[ESP],EAX
-		call	  LFFFFFEE0
-		test	AL,AL
-		je	L2F82
-		movzx	EAX,byte ptr -011h[EBP]
-		movzx	EAX,AL
-		mov	EDX,EAX
-		shl	EDX,018h
-		movzx	EAX,byte ptr -010h[EBP]
-		movzx	EAX,AL
-		shl	EAX,010h
-		or	EDX,EAX
-		movzx	EAX,byte ptr -0Fh[EBP]
-		movzx	EAX,AL
-		shl	EAX,8
-		or	EDX,EAX
-		movzx	EAX,byte ptr -0Eh[EBP]
-		movzx	EAX,AL
-		or	EAX,EDX
-		mov	-024h[EBP],EAX
-		mov	EAX,-024h[EBP]
-		jmp short	L2F87
-L2F82:		mov	EAX,0FFFFFFFFh
-L2F87:		mov	EDX,-0Ch[EBP]
-		xor	EDX,GS:[014h]
-		je	L2FA2
-		jmp short	L2F9D
-		mov	[ESP],EAX
-		call	  LFFFFFFA0
-L2F9D:		call	  L5550
-L2FA2:		add	ESP,044h
-		pop	EBX
-		pop	EBP
-		ret
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,064h
-		call	  L10000011B
-		add	EBX,0486Ch
-		mov	EDX,8[EBP]
-		mov	EAX,0Ch[EBP]
-		mov	-03Ch[EBP],DL
-		mov	-040h[EBP],AL
-		mov	EAX,GS:[014h]
-		mov	-0Ch[EBP],EAX
-		xor	EAX,EAX
-		mov	byte ptr -019h[EBP],0FEh
-		mov	byte ptr -018h[EBP],1
-		mov	byte ptr -017h[EBP],021h
-		mov	byte ptr -016h[EBP],1
-		mov	byte ptr -015h[EBP],0
-		mov	byte ptr -014h[EBP],6
-		mov	byte ptr -013h[EBP],0
-		mov	byte ptr -012h[EBP],0
-		mov	byte ptr -011h[EBP],0
-		mov	byte ptr -010h[EBP],0
-		mov	byte ptr -0Fh[EBP],0
-		mov	byte ptr -0Eh[EBP],0
-		mov	byte ptr -0Dh[EBP],0FDh
-		mov	dword ptr -021h[EBP],0
-		mov	dword ptr -01Dh[EBP],0
-		cmp	byte ptr -03Ch[EBP],0
-		je	L301F
-		cmp	byte ptr -03Ch[EBP],1
-		jne	L302E
-L301F:		movzx	EAX,byte ptr -03Ch[EBP]
-		mov	-013h[EBP],AL
-		cmp	byte ptr -040h[EBP],0
-		jns	L3038
-		jmp short	L3051
-L302E:		mov	EAX,0
-		jmp	  L314C
-L3038:		cmp	byte ptr -040h[EBP],9
-		jg	L3051
-		movzx	EAX,byte ptr -040h[EBP]
-		mov	-012h[EBP],AL
-		mov	EAX,010h[EBP]
-		cmp	EAX,030D3Fh
-		jbe	L305B
-		jmp short	L30B4
-L3051:		mov	EAX,0
-		jmp	  L314C
-L305B:		mov	EAX,010h[EBP]
-		mov	-025h[EBP],EAX
-		movzx	EAX,byte ptr -022h[EBP]
-		mov	-011h[EBP],AL
-		movzx	EAX,byte ptr -023h[EBP]
-		mov	-010h[EBP],AL
-		movzx	EAX,byte ptr -024h[EBP]
-		mov	-0Fh[EBP],AL
-		movzx	EAX,byte ptr -025h[EBP]
-		mov	-0Eh[EBP],AL
-		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],0
-		lea	EDX,-02Ch[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],0Dh
-		lea	EDX,-019h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFE00
-		xor	EAX,1
-		test	AL,AL
-		je	L30C8
-		jmp short	L30BE
-L30B4:		mov	EAX,0
-		jmp	  L314C
-L30BE:		mov	EAX,0
-		jmp	  L314C
-L30C8:		mov	EAX,-02Ch[EBP]
-		cmp	EAX,0Dh
-		je	L30D7
-		mov	EAX,0
-		jmp short	L314C
-L30D7:		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],1
-		lea	EDX,-02Ch[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],8
-		lea	EDX,-021h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFD30
-		xor	EAX,1
-		test	AL,AL
-		je	L3113
-		mov	EAX,0
-		jmp short	L314C
-L3113:		mov	EAX,-02Ch[EBP]
-		mov	4[ESP],EAX
-		lea	EAX,-021h[EBP]
-		mov	[ESP],EAX
-		call	  LFFFFFEE0
-		test	AL,AL
-		je	L3147
-		movzx	EAX,byte ptr -020h[EBP]
-		test	AL,AL
-		jne	L3140
-		movzx	EAX,byte ptr -01Fh[EBP]
-		cmp	AL,1
-		jne	L3140
-		mov	EAX,1
-		jmp short	L314C
-L3140:		mov	EAX,0
-		jmp short	L314C
-L3147:		mov	EAX,0
-L314C:		mov	EDX,-0Ch[EBP]
-		xor	EDX,GS:[014h]
-		je	L3167
-		jmp short	L3162
-		mov	[ESP],EAX
-		call	  LFFFFFFA0
-L3162:		call	  L5550
-L3167:		add	ESP,064h
-		pop	EBX
-		pop	EBP
-		ret
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,054h
-		call	  L10000011B
-		add	EBX,046A7h
-		mov	EDX,8[EBP]
-		mov	EAX,0Ch[EBP]
-		mov	-02Ch[EBP],DL
-		mov	-030h[EBP],AL
-		mov	EAX,GS:[014h]
-		mov	-0Ch[EBP],EAX
-		xor	EAX,EAX
-		mov	byte ptr -020h[EBP],0FEh
-		mov	byte ptr -01Fh[EBP],1
-		mov	byte ptr -01Eh[EBP],022h
-		mov	byte ptr -01Dh[EBP],1
-		mov	byte ptr -01Ch[EBP],0
-		mov	byte ptr -01Bh[EBP],2
-		mov	byte ptr -01Ah[EBP],0
-		mov	byte ptr -019h[EBP],0
-		mov	byte ptr -018h[EBP],0FDh
-		mov	dword ptr -017h[EBP],0
-		mov	dword ptr -013h[EBP],0
-		mov	word ptr -0Fh[EBP],0
-		mov	byte ptr -0Dh[EBP],0
-		cmp	byte ptr -02Ch[EBP],0
-		je	L31DE
-		cmp	byte ptr -02Ch[EBP],1
-		jne	L31ED
-L31DE:		movzx	EAX,byte ptr -02Ch[EBP]
-		mov	-01Ah[EBP],AL
-		cmp	byte ptr -030h[EBP],0
-		jns	L31F7
-		jmp short	L323B
-L31ED:		mov	EAX,0FFFFFFFFh
-		jmp	  L3304
-L31F7:		cmp	byte ptr -030h[EBP],9
-		jg	L323B
-		movzx	EAX,byte ptr -030h[EBP]
-		mov	-019h[EBP],AL
-		mov	EAX,0FFFFFFB8h[EBX]
-_Z17GetSignalStrengthPi:
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],0
-		lea	EDX,-028h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],9
-		lea	EDX,-020h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFE00
-		xor	EAX,1
-		test	AL,AL
-		je	L324F
-		jmp short	L3245
-L323B:		mov	EAX,0FFFFFFFFh
-		jmp	  L3304
-L3245:		mov	EAX,0FFFFFFFFh
-		jmp	  L3304
-L324F:		mov	EAX,-028h[EBP]
-		cmp	EAX,9
-		je	L3261
-		mov	EAX,0FFFFFFFFh
-		jmp	  L3304
-L3261:		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],1
-		lea	EDX,-028h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],0Bh
-		lea	EDX,-017h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFD30
-		xor	EAX,1
-		test	AL,AL
-		je	L329D
-		mov	EAX,0FFFFFFFFh
-		jmp short	L3304
-L329D:		mov	EAX,-028h[EBP]
-		mov	4[ESP],EAX
-		lea	EAX,-017h[EBP]
-		mov	[ESP],EAX
-		call	  LFFFFFEE0
-		test	AL,AL
-		je	L32FF
-		movzx	EAX,byte ptr -015h[EBP]
-		cmp	AL,022h
-		jne	L32F8
-		movzx	EAX,byte ptr -012h[EBP]
-		cmp	AL,4
-		jne	L32F8
-		movzx	EAX,byte ptr -011h[EBP]
-		movzx	EAX,AL
-		mov	EDX,EAX
-		shl	EDX,018h
-		movzx	EAX,byte ptr -010h[EBP]
-		movzx	EAX,AL
-		shl	EAX,010h
-		or	EDX,EAX
-		movzx	EAX,byte ptr -0Fh[EBP]
-		movzx	EAX,AL
-		shl	EAX,8
-		or	EDX,EAX
-		movzx	EAX,byte ptr -0Eh[EBP]
-		movzx	EAX,AL
-		or	EAX,EDX
-		mov	-024h[EBP],EAX
-		mov	EAX,-024h[EBP]
-		jmp short	L3304
-L32F8:		mov	EAX,0FFFFFFFFh
-		jmp short	L3304
-L32FF:		mov	EAX,0FFFFFFFFh
-L3304:		mov	EDX,-0Ch[EBP]
-		xor	EDX,GS:[014h]
-		je	L331F
-		jmp short	L331A
-		mov	[ESP],EAX
-		call	  LFFFFFFA0
-L331A:		call	  L5550
-L331F:		add	ESP,054h
-		pop	EBX
-		pop	EBP
-		ret
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,044h
-		call	  L10000011B
-		add	EBX,044EFh
-		mov	EAX,GS:[014h]
-		mov	-0Ch[EBP],EAX
-		xor	EAX,EAX
-		mov	byte ptr -01Eh[EBP],0FEh
-		mov	byte ptr -01Dh[EBP],1
-		mov	byte ptr -01Ch[EBP],016h
-		mov	byte ptr -01Bh[EBP],1
-		mov	byte ptr -01Ah[EBP],0
-		mov	byte ptr -019h[EBP],0
-		mov	byte ptr -018h[EBP],0FDh
-		mov	dword ptr -017h[EBP],0
-		mov	dword ptr -013h[EBP],0
-		mov	word ptr -0Fh[EBP],0
-		mov	byte ptr -0Dh[EBP],0
-		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],0
-		lea	EDX,-028h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],7
-		lea	EDX,-01Eh[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFE00
-		xor	EAX,1
-		test	AL,AL
-		je	L33B5
-		mov	EAX,0
-		jmp	  L3459
-L33B5:		mov	EAX,0FFFFFFB8h[EBX]
-		mov	EAX,[EAX]
-		mov	dword ptr 010h[ESP],1
-		lea	EDX,-028h[EBP]
-		mov	0Ch[ESP],EDX
-		mov	dword ptr 8[ESP],0Bh
-		lea	EDX,-017h[EBP]
-		mov	4[ESP],EDX
-		mov	[ESP],EAX
-		call	  LFFFFFD30
-		xor	EAX,1
-		test	AL,AL
-		je	L33F1
-		mov	EAX,0
-		jmp short	L3459
-L33F1:		mov	EAX,-028h[EBP]
-		mov	4[ESP],EAX
-		lea	EAX,-017h[EBP]
-		mov	[ESP],EAX
-		call	  LFFFFFEE0
-		test	AL,AL
-		je	L3454
-		movzx	EAX,byte ptr -016h[EBP]
-		cmp	AL,1
-		jne	L344D
-		movzx	EAX,byte ptr -011h[EBP]
-		movzx	EAX,AL
-		mov	EDX,EAX
-		shl	EDX,018h
-		movzx	EAX,byte ptr -010h[EBP]
-		movzx	EAX,AL
-		shl	EAX,010h
-		or	EDX,EAX
-		movzx	EAX,byte ptr -0Fh[EBP]
-		movzx	EAX,AL
-		shl	EAX,8
-		or	EDX,EAX
-		movzx	EAX,byte ptr -0Eh[EBP]
-		movzx	EAX,AL
-		or	EAX,EDX
-		mov	-024h[EBP],EAX
-		mov	EAX,-024h[EBP]
-		mov	0E8h[EBX],EAX
-		mov	EAX,-024h[EBP]
-		jmp short	L3459
-L344D:		mov	EAX,0
-		jmp short	L3459
-L3454:		mov	EAX,0
-L3459:		mov	EDX,-0Ch[EBP]
-		xor	EDX,GS:[014h]
-		je	L3474
-		jmp short	L346F
-		mov	[ESP],EAX
-		call	  LFFFFFFA0
-L346F:		call	  L5550
-L3474:		add	ESP,044h
-		pop	EBX
-		pop	EBP
-		ret
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,024h
-		call	  L10000011B
-		add	EBX,0439Ah
-		mov	dword ptr -0Ch[EBP],0
-		call	  LFFFFFF90
-		mov	-0Dh[EBP],AL
-		cmp	byte ptr -0Dh[EBP],0
-		jne	L34DE
-		call	  LFFFFFDB0
-		mov	-0Ch[EBP],EAX
-		mov	EAX,0E8h[EBX]
-		sub	EAX,1
-		cmp	EAX,-0Ch[EBP]
-		jle	L34BD
-		add	dword ptr -0Ch[EBP],1
-		jmp short	L34C4
-L34BD:		mov	dword ptr -0Ch[EBP],0
-L34C4:		mov	EAX,-0Ch[EBP]
-		mov	4[ESP],EAX
-		mov	[ESP],0
-		call	  LFFFFFF20
-		mov	EAX,1
-		jmp short	L34FC
-L34DE:		cmp	byte ptr -0Dh[EBP],1
-		jne	L34F7
-		mov	[ESP],1
-		call	  LFFFFFE70
-		mov	EAX,1
-		jmp short	L34FC
-L34F7:		mov	EAX,0
-L34FC:		add	ESP,024h
-		pop	EBX
-		pop	EBP
-		ret
-		push	EBP
-		mov	EBP,ESP
-		push	EBX
-		sub	ESP,024h
-		call	  L10000011B
-		add	EBX,04312h
-		mov	dword ptr -0Ch[EBP],0
-		call	  LFFFFFF90
-		mov	-0Dh[EBP],AL
-		cmp	byte ptr -0Dh[EBP],0
-		jne	L3563
-		call	  LFFFFFDB0
-		mov	-0Ch[EBP],EAX
-		cmp	dword ptr -0Ch[EBP],0
-		jle	L353D
-		sub	dword ptr -0Ch[EBP],1
-		jmp short	L3549
-L353D:		mov	EAX,0E8h[EBX]
-		sub	EAX,1
-		mov	-0Ch[EBP],EAX
-L3549:		mov	EAX,-0Ch[EBP]
-		mov	4[ESP],EAX
-		mov	[ESP],0
-		call	  LFFFFFF20
-		mov	EAX,1
-		jmp short	L3581
-L3563:		cmp	byte ptr -0Dh[EBP],1
-		jne	L357C
-		mov	[ESP],0
-		call	  LFFFFFE70
-		mov	EAX,1
-		jmp short	L3581
-L357C:		mov	EAX,0
-L3581:		add	ESP,024h
-		pop	EBX
-		pop	EBP
-		ret
+_Z15GetTotalProgramv:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x44,%esp
+       	call   __x86.get_pc_thunk.bx
+    	add    $0x44ef,%ebx
+    	mov    %gs:0x14,%eax
+        mov    %eax,-0xc(%ebp)
+        xor    %eax,%eax
+        movb   $0xfe,-0x1e(%ebp)
+        movb   $0x1,-0x1d(%ebp)
+        movb   $0x16,-0x1c(%ebp)
+        movb   $0x1,-0x1b(%ebp)
+        movb   $0x0,-0x1a(%ebp)
+        movb   $0x0,-0x19(%ebp)
+        movb   $0xfd,-0x18(%ebp)
+ 	movl   $0x0,-0x17(%ebp)
+ 	movl   $0x0,-0x13(%ebp)
+    	movw   $0x0,-0xf(%ebp)
+        movb   $0x0,-0xd(%ebp)
+    	mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x0,0x10(%esp)
+        lea    -0x28(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0x7,0x8(%esp)
+        lea    -0x1e(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z16WriteSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L33B5
+       	mov    $0x0,%eax
+       	jmp    L3459
+L33B5:  mov    -0x48(%ebx),%eax
+        mov    (%eax),%eax
+ 	movl   $0x1,0x10(%esp)
+        lea    -0x28(%ebp),%edx
+        mov    %edx,0xc(%esp)
+ 	movl   $0xb,0x8(%esp)
+        lea    -0x17(%ebp),%edx
+        mov    %edx,0x4(%esp)
+        mov    %eax,(%esp)
+       	call   _Z15ReadSerialBytesiPhiPii@plt
+        xor    $0x1,%eax
+        test   %al,%al
+        je     L33F1
+       	mov    $0x0,%eax
+        jmp    L3459
+L33F1:  mov    -0x28(%ebp),%eax
+        mov    %eax,0x4(%esp)
+        lea    -0x17(%ebp),%eax
+        mov    %eax,(%esp)
+       	call   _Z10GoodHeaderPhi@plt
+        test   %al,%al
+        je     L3454
+        movzbl -0x16(%ebp),%eax
+        cmp    $0x1,%al
+        jne    L344D
+        movzbl -0x11(%ebp),%eax
+        movzbl %al,%eax
+        mov    %eax,%edx
+        shl    $0x18,%edx
+        movzbl -0x10(%ebp),%eax
+        movzbl %al,%eax
+        shl    $0x10,%eax
+        or     %eax,%edx
+        movzbl -0xf(%ebp),%eax
+        movzbl %al,%eax
+        shl    $0x8,%eax
+        or     %eax,%edx
+        movzbl -0xe(%ebp),%eax
+        movzbl %al,%eax
+        or     %edx,%eax
+        mov    %eax,-0x24(%ebp)
+        mov    -0x24(%ebp),%eax
+    	mov    %eax,0xe8(%ebx)
+        mov    -0x24(%ebp),%eax
+        jmp    L3459
+L344D:  mov    $0x0,%eax
+        jmp    L3459
+L3454:  mov    $0x0,%eax
+L3459:  mov    -0xc(%ebp),%edx
+ 	xor    %gs:0x14,%edx
+        je     L3474
+        jmp    L346F
+        mov    %eax,(%esp)
+       	call   _Unwind_Resume@plt
+L346F:  call   __stack_chk_fail_local
+L3474:  add    $0x44,%esp
+        pop    %ebx
+        pop    %ebp
+        ret    
+
+_Z10NextStreamv:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x24,%esp
+       	call   __x86.get_pc_thunk.bx
+    	add    $0x439a,%ebx
+ 	movl   $0x0,-0xc(%ebp)
+       	call   _Z11GetPlayModev@plt
+        mov    %al,-0xd(%ebp)
+        cmpb   $0x0,-0xd(%ebp)
+        jne    L34DE
+       	call   _Z12GetPlayIndexv@plt
+        mov    %eax,-0xc(%ebp)
+    	mov    0xe8(%ebx),%eax
+        sub    $0x1,%eax
+        cmp    -0xc(%ebp),%eax
+        jle    L34BD
+        addl   $0x1,-0xc(%ebp)
+        jmp    L34C4
+L34BD:  movl   $0x0,-0xc(%ebp)
+L34C4:  mov    -0xc(%ebp),%eax
+        mov    %eax,0x4(%esp)
+ 	movl   $0x0,(%esp)
+       	call   _Z10PlayStreamcm@plt
+       	mov    $0x1,%eax
+        jmp    L34FC
+L34DE:  cmpb   $0x1,-0xd(%ebp)
+        jne    L34F7
+ 	movl   $0x1,(%esp)
+       	call   _Z8FMSearchc@plt
+       	mov    $0x1,%eax
+        jmp    L34FC
+L34F7:  mov    $0x0,%eax
+L34FC:  add    $0x24,%esp
+        pop    %ebx
+        pop    %ebp
+        ret    
+
+_Z10PrevStreamv:
+        push   %ebp
+        mov    %esp,%ebp
+        push   %ebx
+        sub    $0x24,%esp
+       	call   __x86.get_pc_thunk.bx
+    	add    $0x4312,%ebx
+ 	movl   $0x0,-0xc(%ebp)
+       	call   _Z11GetPlayModev@plt
+        mov    %al,-0xd(%ebp)
+        cmpb   $0x0,-0xd(%ebp)
+        jne    L3563
+       	call   _Z12GetPlayIndexv@plt
+        mov    %eax,-0xc(%ebp)
+        cmpl   $0x0,-0xc(%ebp)
+        jle    L353D
+        subl   $0x1,-0xc(%ebp)
+        jmp    L3549
+L353D:  mov    0xe8(%ebx),%eax
+        sub    $0x1,%eax
+        mov    %eax,-0xc(%ebp)
+L3549:  mov    -0xc(%ebp),%eax
+        mov    %eax,0x4(%esp)
+ 	movl   $0x0,(%esp)
+       	call   _Z10PlayStreamcm@plt
+       	mov    $0x1,%eax
+        jmp    L3581
+L3563:  cmpb   $0x1,-0xd(%ebp)
+        jne    L357C
+ 	movl   $0x0,(%esp)
+       	call   _Z8FMSearchc@plt
+       	mov    $0x1,%eax
+        jmp    L3581
+L357C:  mov    $0x0,%eax
+L3581:  add    $0x24,%esp
+        pop    %ebx
+        pop    %ebp
+        ret    
+        
 		push	EBP
 		mov	EBP,ESP
 		push	EBX
@@ -4267,6 +4283,7 @@ L36B1:		add	ESP,044h
 		pop	EBX
 		pop	EBP
 		ret
+        
 		push	EBP
 		mov	EBP,ESP
 		push	EBX
