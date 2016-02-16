@@ -80,7 +80,6 @@
     <Compile Include="src\DABControl.d" />
     <Compile Include="src\DABController.d" />
     <Compile Include="src\DABInfo.d" />
-    <Compile Include="src\DABInfoString.d" />
     <Compile Include="src\DABState.d" />
     <Compile Include="src\DABStation.d" />
     <Compile Include="src\DABStationColumn.d" />

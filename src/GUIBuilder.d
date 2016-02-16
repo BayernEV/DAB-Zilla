@@ -24,115 +24,43 @@ import std.c.process;
 class GUIBuilder
 {
 
-    /**
-     * @uml
-     * @read
-     */
-    private Button buttonVolumePlus_;
+    public Button buttonVolumePlus;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Button buttonVolumeMinus_;
+    public Button buttonVolumeMinus;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Button buttonProgramPlus_;
+    public Button buttonProgramPlus;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Button buttonProgramMinus_;
+    public Button buttonProgramMinus;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Button buttonPlay_;
+    public Button buttonPlay;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Label labelProgramName_;
+    public Label labelProgramName;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Label labelStatus_;
+    public Label labelStatus;
 
-    /**
-     * @uml
-     * @read
-     */
-    private TreeView treeviewStations_;
+    public TreeView treeviewStations;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Image imageSlideShow_;
+    public Image imageSlideShow;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Scale scaleVolume_;
+    public Scale scaleVolume;
 
-    /**
-     * @uml
-     * @read
-     */
-    private TextView textviewProgramText_;
+    public TextView textviewProgramText;
 
-    /**
-     * @uml
-     * @read
-     */
-    private TextBuffer textbufferProgramText_;
+    public TextBuffer textbufferProgramText;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Label labelSignalStrength_;
+    public Label labelSignalStrength;
 
-    /**
-     * @uml
-     * @read
-     */
-    private LevelBar levelbarSignalStrength_;
+    public LevelBar levelbarSignalStrength;
 
     private uint currentStoreIndex = 0;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Button buttonScan_;
+    public Button buttonScan;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Label labelDataRate_;
+    public Label labelDataRate;
 
-    /**
-     * @uml
-     * @read
-     */
-    private Label labelEnsemble_;
+    public Label labelEnsemble;
 
-    /**
-     * @uml
-     * @read
-     */
-    private ToggleButton togglebuttonMute_;
+    public ToggleButton togglebuttonMute;
 
     public this(string[] args)
     {
@@ -149,59 +77,59 @@ class GUIBuilder
 
         if (w !is null)
             {
-                w.setTitle("DABZilla Version 0.4.6");
+                w.setTitle("DABZilla Version 0.4.7");
                 w.addOnHide( delegate void(Widget aux){ exit(0); } );
 
-                scaleVolume_ = cast(Scale)g.getObject("scaleVolume");
-                assert(scaleVolume_ !is null);
+                scaleVolume = cast(Scale)g.getObject("scaleVolume");
+                assert(scaleVolume !is null);
                 Button buttonQuit = cast(Button)g.getObject("buttonQuit");
                 if (buttonQuit !is null)
                     {
                         buttonQuit.addOnClicked( delegate void(Button aux){ exit(0); } );
                     }
-                buttonVolumePlus_ = cast(Button)g.getObject("buttonVolumePlus");
-                assert(buttonVolumePlus_ !is null);
-                buttonVolumeMinus_ = cast(Button)g.getObject("buttonVolumeMinus");
-                assert(buttonVolumeMinus_ !is null);
-                buttonProgramPlus_ = cast(Button)g.getObject("buttonProgramPlus");
-                assert(buttonProgramPlus_ !is null);
-                buttonProgramMinus_ = cast(Button)g.getObject("buttonProgramMinus");
-			    assert(buttonProgramMinus_ !is null);
-			    togglebuttonMute_ = cast(ToggleButton)g.getObject("togglebuttonMute");
-			    assert(togglebuttonMute_ !is null);
-                buttonPlay_ = cast(Button)g.getObject("buttonPlay");
-                assert(buttonPlay_ !is null);
-                buttonScan_ = cast(Button)g.getObject("buttonScan");
-                assert(buttonScan_ !is null);
+                buttonVolumePlus = cast(Button)g.getObject("buttonVolumePlus");
+                assert(buttonVolumePlus !is null);
+                buttonVolumeMinus = cast(Button)g.getObject("buttonVolumeMinus");
+                assert(buttonVolumeMinus !is null);
+                buttonProgramPlus = cast(Button)g.getObject("buttonProgramPlus");
+                assert(buttonProgramPlus !is null);
+                buttonProgramMinus = cast(Button)g.getObject("buttonProgramMinus");
+			    assert(buttonProgramMinus !is null);
+			    togglebuttonMute = cast(ToggleButton)g.getObject("togglebuttonMute");
+			    assert(togglebuttonMute !is null);
+                buttonPlay = cast(Button)g.getObject("buttonPlay");
+                assert(buttonPlay !is null);
+                buttonScan = cast(Button)g.getObject("buttonScan");
+                assert(buttonScan !is null);
 
-                labelProgramName_ = cast(Label)g.getObject("labelProgramName");
-                assert(labelProgramName_ !is null);
-                labelDataRate_ = cast(Label)g.getObject("labelDataRate");
-                assert(labelDataRate_ !is null);
-                labelStatus_ = cast(Label)g.getObject("labelStatus");
-                assert(labelStatus_ !is null);
-                labelEnsemble_ = cast(Label)g.getObject("labelEnsemble");
-                assert(labelEnsemble_ !is null);
+                labelProgramName = cast(Label)g.getObject("labelProgramName");
+                assert(labelProgramName !is null);
+                labelDataRate = cast(Label)g.getObject("labelDataRate");
+                assert(labelDataRate !is null);
+                labelStatus = cast(Label)g.getObject("labelStatus");
+                assert(labelStatus !is null);
+                labelEnsemble = cast(Label)g.getObject("labelEnsemble");
+                assert(labelEnsemble !is null);
 
-                labelEnsemble_.setMarkup("Ensemble:");
+                labelEnsemble.setMarkup("Ensemble:");
 
-                levelbarSignalStrength_ = cast(LevelBar)g.getObject("levelbarSignalStrength");
-                assert(levelbarSignalStrength_ !is null);
-                labelSignalStrength_ = cast(Label)g.getObject("labelSignalStrength");
-                assert(labelSignalStrength_ !is null);
-                imageSlideShow_ = cast(Image)g.getObject("imageSlideShow");
-                assert(imageSlideShow_ !is null);
-                textviewProgramText_ = cast(TextView)g.getObject("textviewProgramText");
-                assert(textviewProgramText_ !is null);
-                textbufferProgramText_ = textviewProgramText.getBuffer;
-                textbufferProgramText_.createTag("bold_red",
+                levelbarSignalStrength = cast(LevelBar)g.getObject("levelbarSignalStrength");
+                assert(levelbarSignalStrength !is null);
+                labelSignalStrength = cast(Label)g.getObject("labelSignalStrength");
+                assert(labelSignalStrength !is null);
+                imageSlideShow = cast(Image)g.getObject("imageSlideShow");
+                assert(imageSlideShow !is null);
+                textviewProgramText = cast(TextView)g.getObject("textviewProgramText");
+                assert(textviewProgramText !is null);
+                textbufferProgramText = textviewProgramText.getBuffer;
+                textbufferProgramText.createTag("bold_red",
                                                  "weight", cast(int)PangoWeight.BOLD,
                                                  "foreground", "red");
                 textbufferProgramText.createTag("bold_blue",
                                                 "weight", cast(int)PangoWeight.BOLD,
                                                 "foreground", "blue");
-                treeviewStations_ = cast(TreeView)g.getObject("treeviewStations");
-                assert(treeviewStations_ !is null);
+                treeviewStations = cast(TreeView)g.getObject("treeviewStations");
+                assert(treeviewStations !is null);
 
             }
         else
@@ -211,96 +139,6 @@ class GUIBuilder
             }
 
         w.showAll;
-    }
-
-    public final Button buttonVolumePlus()
-    {
-        return this.buttonVolumePlus_;
-    }
-
-    public final Button buttonVolumeMinus()
-    {
-        return this.buttonVolumeMinus_;
-    }
-
-    public final Button buttonProgramPlus()
-    {
-        return this.buttonProgramPlus_;
-    }
-
-    public final Button buttonProgramMinus()
-    {
-        return this.buttonProgramMinus_;
-    }
-
-    public final Button buttonPlay()
-    {
-        return this.buttonPlay_;
-    }
-
-    public final Label labelProgramName()
-    {
-        return this.labelProgramName_;
-    }
-
-    public final Label labelStatus()
-    {
-        return this.labelStatus_;
-    }
-
-    public final TreeView treeviewStations()
-    {
-        return this.treeviewStations_;
-    }
-
-    public final Image imageSlideShow()
-    {
-        return this.imageSlideShow_;
-    }
-
-    public final Scale scaleVolume()
-    {
-        return this.scaleVolume_;
-    }
-
-    public final TextView textviewProgramText()
-    {
-        return this.textviewProgramText_;
-    }
-
-    public final TextBuffer textbufferProgramText()
-    {
-        return this.textbufferProgramText_;
-    }
-
-    public final Label labelSignalStrength()
-    {
-        return this.labelSignalStrength_;
-    }
-
-    public final LevelBar levelbarSignalStrength()
-    {
-        return this.levelbarSignalStrength_;
-    }
-
-    public final Button buttonScan()
-    {
-        return this.buttonScan_;
-    }
-
-    public final Label labelDataRate()
-    {
-        return this.labelDataRate_;
-    }
-
-    public final Label labelEnsemble()
-    {
-        return this.labelEnsemble_;
-    }
-
-    public final ToggleButton togglebuttonMute()
-    {
-        return this.togglebuttonMute_;
     }
 
 }

@@ -10,38 +10,8 @@ module Store;
 struct Store
 {
 
-    /**
-     * @uml
-     * @read
-     * @write
-     */
-    private uint channel_;
+    public uint channel;
 
-    /**
-     * @uml
-     * @read
-     * @write
-     */
-    private string stationName_;
-
-    public final uint channel()
-    {
-        return this.channel_;
-    }
-
-    public final void channel(uint channel)
-    {
-        this.channel_ = channel;
-    }
-
-    public final string stationName()
-    {
-        return this.stationName_;
-    }
-
-    public final void stationName(string stationName)
-    {
-        this.stationName_ = stationName;
-    }
+    public string stationName;
 
 }

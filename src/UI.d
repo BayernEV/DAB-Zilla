@@ -36,35 +36,35 @@ class UI : GUIBuilder
      * @read
      * @write
      */
-    private Tid thrId_;
+    public Tid thrId_;
 
     /**
      * @uml
      * @read
      * @write
      */
-    private uint channel_;
+    public uint channel_;
 
     /**
      * @uml
      * @read
      * @write
      */
-    private uint channelIndex_;
+    public uint channelIndex_;
 
-    private dchar[150] programName;
+    public dchar[150] programName;
 
-    private dchar[150] programText;
+    public dchar[150] programText;
 
-    private bool switchTag = true;
+    public bool switchTag = true;
 
-    private dchar[150] slideShowFileName;
+    public dchar[150] slideShowFileName;
 
-    private uint currentSendChannel = 0;
+    public uint currentSendChannel = 0;
 
-    private DABStation storeDAB;
+    public DABStation storeDAB;
 
-    private Store storeCollect;
+    public Store storeCollect;
 
     public this(string[] args)
     {

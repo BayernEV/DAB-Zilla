@@ -8,10 +8,10 @@ EXEC=DABZilla
 MAKEFILE=Makefile
 
 CFLAGS=-ggdb -Wall -m32
-DFLAGS=-gc -w -m32 -I/usr/local/include/d/gtkd-2 -Isrc
+DFLAGS=-gc -w -m32 -I/usr/local/include/d/gtkd-3 -Isrc
 LDFLAGS=-m32
 
-LIBRARIES=-L-lgtkd-2 -L-lphobos2 -L-lkeystonecomm -L-ldl
+LIBRARIES=-L-lgtkd-3 -L-lphobos2 -L-lkeystonecomm -L-ldl
 BUILDDIR = build
 
 MODULES=DABZilla GUIBuilder UI DABController \

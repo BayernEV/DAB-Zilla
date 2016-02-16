@@ -8,7 +8,7 @@ Prerequisite
 
 1. DMD - D Compiler v2.066.1
 
-2. GtkD 2.4.0
+2. GtkD 3.2.1
 
 3. gtk+ 3.14
 

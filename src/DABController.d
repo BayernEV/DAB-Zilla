@@ -31,23 +31,13 @@ else
 class DABController
 {
 
-    /**
-     * @uml
-     * @read
-     * @write
-     */
-    private DABState state_;
+    private DABState state;
 
     private Tid thrId;
 
     private uint channel = 0;
 
-    /**
-     * @uml
-     * @read
-     * @write
-     */
-    private bool verbose_;
+    public bool verbose;
 
     private dchar[150] programName;
 
@@ -437,26 +427,6 @@ class DABController
                    to!uint(0),
                    to!int(0),
                    to!dchar(0));
-    }
-
-    public final DABState state()
-    {
-        return this.state_;
-    }
-
-    public final void state(DABState state)
-    {
-        this.state_ = state;
-    }
-
-    public final bool verbose()
-    {
-        return this.verbose_;
-    }
-
-    public final void verbose(bool verbose)
-    {
-        this.verbose_ = verbose;
     }
 
 }
