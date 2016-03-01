@@ -31,40 +31,25 @@ import gtk.TreeIter;
 class UI : GUIBuilder
 {
 
-    /**
-     * @uml
-     * @read
-     * @write
-     */
-    public Tid thrId_;
+    public Tid thrId;
 
-    /**
-     * @uml
-     * @read
-     * @write
-     */
-    public uint channel_;
+    public uint channel;
 
-    /**
-     * @uml
-     * @read
-     * @write
-     */
-    public uint channelIndex_;
+    public uint channelIndex;
 
-    public dchar[150] programName;
+    private dchar[150] programName;
 
-    public dchar[150] programText;
+    private dchar[150] programText;
 
-    public bool switchTag = true;
+    private bool switchTag = true;
 
-    public dchar[150] slideShowFileName;
+    private dchar[150] slideShowFileName;
 
-    public uint currentSendChannel = 0;
+    private uint currentSendChannel = 0;
 
-    public DABStation storeDAB;
+    private DABStation storeDAB;
 
-    public Store storeCollect;
+    private Store storeCollect;
 
     public this(string[] args)
     {
@@ -318,36 +303,6 @@ class UI : GUIBuilder
     public final void volume(uint volume)
     {
         scaleVolume.setValue(to!double(volume));
-    }
-
-    public final Tid thrId()
-    {
-        return this.thrId_;
-    }
-
-    public final void thrId(Tid thrId)
-    {
-        this.thrId_ = thrId;
-    }
-
-    public final uint channel()
-    {
-        return this.channel_;
-    }
-
-    public final void channel(uint channel)
-    {
-        this.channel_ = channel;
-    }
-
-    public final uint channelIndex()
-    {
-        return this.channelIndex_;
-    }
-
-    public final void channelIndex(uint channelIndex)
-    {
-        this.channelIndex_ = channelIndex;
     }
 
 }

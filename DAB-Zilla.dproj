@@ -69,6 +69,7 @@
     <None Include="icons\exit.svg" />
     <None Include="icons\hardMute.png" />
     <None Include="include\KeyStoneCOMM.h" />
+    <None Include="controlDAB.s" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="icons\" />

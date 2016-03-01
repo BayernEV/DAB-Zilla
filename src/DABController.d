@@ -344,7 +344,7 @@ class DABController
                                                 break;
                                             }
                                     }
-                                rs.name = programName[0 .. endOfString];
+                                rs.name = programName[0 .. endOfString].dup;
                                 appRadioStation.put(rs);
                             }
                         debug(sendChannels) writefln("RadioStation %s", appRadioStation.data);
