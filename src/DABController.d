@@ -331,20 +331,13 @@ class DABController
                                                 to!char(0),
                                                 &programName[0]);
                                 rs.number = channelIndex;
-                                int endOfString;
-                                foreach (int i, c; programName)
-                                    {
-                                        if (c == 0)
-                                            {
-                                                endOfString = i;
-                                                break;
-                                            }
-                                    }
-                                rs.name = programName[0 .. endOfString].dup;
+                                rs.name = programName[0 ..
+                                        indexOf(programName,"\0"d)].dup;
                                 if (! _PlayStream(0, channelIndex))
                                     stderr.writefln("DAB not running");
+                                // look for data rate
                                 rs.dataRate = 1111;
-                                int maxCount = 10;
+                                int maxCount = 10; // sometimes no rate exists
                                 while (rs.dataRate >1000)
                                     {
                                         if (maxCount-- == 0)
