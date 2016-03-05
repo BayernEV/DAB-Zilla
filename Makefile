@@ -52,5 +52,5 @@ clean   :
 	mv /tmp/1000.jpg /tmp/default.jpg slides
 
 .PHONY  : install
-install : 
+install :
 	cp $(LIBBIN) $(LIBDEST)

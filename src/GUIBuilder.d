@@ -77,7 +77,7 @@ class GUIBuilder
 
         if (w !is null)
             {
-                w.setTitle("DABZilla Version 0.4.7");
+                w.setTitle("DABZilla Version 0.4.8");
                 w.addOnHide( delegate void(Widget aux){ exit(0); } );
 
                 scaleVolume = cast(Scale)g.getObject("scaleVolume");
@@ -94,9 +94,9 @@ class GUIBuilder
                 buttonProgramPlus = cast(Button)g.getObject("buttonProgramPlus");
                 assert(buttonProgramPlus !is null);
                 buttonProgramMinus = cast(Button)g.getObject("buttonProgramMinus");
-			    assert(buttonProgramMinus !is null);
-			    togglebuttonMute = cast(ToggleButton)g.getObject("togglebuttonMute");
-			    assert(togglebuttonMute !is null);
+                assert(buttonProgramMinus !is null);
+                togglebuttonMute = cast(ToggleButton)g.getObject("togglebuttonMute");
+                assert(togglebuttonMute !is null);
                 buttonPlay = cast(Button)g.getObject("buttonPlay");
                 assert(buttonPlay !is null);
                 buttonScan = cast(Button)g.getObject("buttonScan");

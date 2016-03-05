@@ -11,4 +11,6 @@ struct RadioStation
 
     public dchar[] name;
 
+    public uint dataRate;
+
 }

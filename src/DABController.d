@@ -326,10 +326,6 @@ class DABController
                         RadioStation rs;
                         for (uint channelIndex = 0; channelIndex < numberOfChannel; channelIndex++)
                             {
-                                foreach (ref c; programName)
-                                    {
-                                        c = '\0';
-                                    }
                                 _GetProgramName(to!char(DAB),
                                                 channelIndex,
                                                 to!char(0),
@@ -345,6 +341,20 @@ class DABController
                                             }
                                     }
                                 rs.name = programName[0 .. endOfString].dup;
+                                if (! _PlayStream(0, channelIndex))
+                                    stderr.writefln("DAB not running");
+                                rs.dataRate = 1111;
+                                int maxCount = 10;
+                                while (rs.dataRate >1000)
+                                    {
+                                        if (maxCount-- == 0)
+                                            {
+                                                rs.dataRate = 0;
+                                                break;
+                                            }
+                                        Thread.sleep(dur!("msecs")(200));
+                                        rs.dataRate = GetDataRate;
+                                    }
                                 appRadioStation.put(rs);
                             }
                         debug(sendChannels) writefln("RadioStation %s", appRadioStation.data);
@@ -396,7 +406,8 @@ class DABController
         auto f = File(expandTilde("~/.dabzilla"), "w");
         foreach (station; stations)
             {
-                f.writefln("%1$s,\"%2$s\",1", station.number, station.name);
+                f.writefln("%1$s,\"%2$s\",%3$s", station.number,
+                station.name, station.dataRate);
             }
         f.close;
     }
@@ -408,9 +419,10 @@ class DABController
         auto s = cast(string)read(expandTilde("~/.dabzilla"));
         foreach(record; csvReader!(Tuple!(uint, string, uint))(s))
             {
-                if (record[2])
+                if (record[2] > 24) // dataRate greater 24 kbit/s
                     {
                         rs.number = to!uint(record[0]);
+                        rs.dataRate = to!uint(record[2]);
                         rs.name = to!(dchar[])("");
                         foreach (c; record[1])
                             rs.name = rs.name ~ to!dchar(c);
