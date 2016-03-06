@@ -13,6 +13,7 @@ enum DABInfo : ubyte
     IMAGE_NAME,
     VOLUME,
     PROGRAM_NAME,
+    ENSEMBLE_NAME,
     PROGRAM_TEXT,
     CHANNELS,
     DATA_RATE,

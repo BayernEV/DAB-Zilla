@@ -158,7 +158,7 @@ class UI : GUIBuilder
                            switch (info) {
                            case(DABInfo.DABInfo.SIGNAL_STRENGTH) :
                                auto signalStrength = to!double(v);
-					           levelbarSignalStrength.setValue(signalStrength);
+                               levelbarSignalStrength.setValue(signalStrength);
                                labelSignalStrength.setText(format("%s %%", signalStrength));
                                break;
                            default :
@@ -202,6 +202,15 @@ class UI : GUIBuilder
                                            labelProgramName.setMarkup("<big><b>" ~ name.strip ~ "</b></big>");
                                        }
                                }
+                           if (info == DABInfo.DABInfo.ENSEMBLE_NAME)
+                               {
+                                   receiveString(programName, index, v);
+                                   if (index == programName.length)
+                                       {
+                                           auto name = to!string(programName[0 .. indexOf(programName, "\0")]);
+                                           labelEnsemble.setMarkup("Ensemble: " ~ name.strip);
+                                       }
+                               }
                            if (info == DABInfo.DABInfo.PROGRAM_TEXT)
                                {
                                    receiveString(programText, index, v);
@@ -233,10 +242,7 @@ class UI : GUIBuilder
     {
         if (index == 0) // cleaning text
             {
-                foreach (ref c; text)
-                    {
-                        c = 0;
-                    }
+                text[] = 0;
             }
         if (index == text.length)
             {

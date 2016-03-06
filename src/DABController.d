@@ -270,9 +270,18 @@ class DABController
                         &programName[0]);
         debug
             {
-                writefln("play %s", programName[0 .. lastIndexOf(programName, "\0")]);
+                writefln("play program %s", programName[0 .. lastIndexOf(programName, "\0")]);
             }
         sendString(DABInfo.DABInfo.PROGRAM_NAME, programName);
+        programName[] = 0;
+        _GetEnsembleName(channel-1,
+                        1, // long name
+                        &programName[0]);
+        debug
+            {
+                writefln("play ensemble %s", programName[0 .. lastIndexOf(programName, "\0")]);
+            }
+        sendString(DABInfo.DABInfo.ENSEMBLE_NAME, programName);
         if (! _PlayStream(0, channel-1))
             stderr.writefln("DAB not running");
         // int samplingRate = GetSamplingRate;
