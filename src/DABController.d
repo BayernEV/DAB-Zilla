@@ -220,8 +220,7 @@ class DABController
                         writefln("programText = %s", programText[0 .. indexOf(programText, '\0')]);
                     }
                 sendString(DABInfo.DABInfo.PROGRAM_TEXT, programText);
-                for (int i = 0; i < programText.length; i++)
-                    programText[i] = '\0';
+                programText[] = 0;
             }
         DABState status = to!DABState(GetPlayStatus);
         thrId.send(status);
