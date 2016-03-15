@@ -124,8 +124,6 @@ class UI : GUIBuilder
         column.packStart(cell_text2, 0 );
         column.addAttribute(cell_text2, "text",
                             DABStationColumn.DABStationColumn.COLUMN_NAME);
-        //writefln("treeviewStations = %1$s", treeviewStations);
-        //treeviewStations.setCursor(treeviewStations, 2, 0);
     }
 
     public void runControl()

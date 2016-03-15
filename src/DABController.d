@@ -77,8 +77,7 @@ class DABController
             }
         else
             {
-                Thread.sleep(dur!("msecs")(4000));
-                writefln("Radio not opend %s", thrId);
+                stderr.writefln("Radio not opend %s", thrId);
             }
     }
 
@@ -110,6 +109,10 @@ class DABController
             }
         else
             {
+                debug
+                    {
+                        writefln("DAB play started");
+                    }
                 play;
             }
         return success;
@@ -260,14 +263,19 @@ class DABController
 
     public void play()
     {
+        debug
+            {
+                writefln("play status %s", to!DABState(GetPlayStatus));
+            }
         if (to!DABState(GetPlayStatus) == DABState.DABState.PLAYING)
             {
                 StopStream;
             }
-        _GetProgramName(cast(char)DAB,
+        bool status = _GetProgramName(cast(char)DAB,
                         channel-1,
                         1, // long name
                         &programName[0]);
+        if (! status) scan;
         debug
             {
                 writefln("play program %s", programName[0 .. lastIndexOf(programName, "\0")]);
