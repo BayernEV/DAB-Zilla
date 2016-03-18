@@ -105,6 +105,18 @@ class UI : GUIBuilder
                                    GType.STRING]
                                   );
 
+        // connect signal to treeviewStations
+        treeviewStations.addOnRowActivated (delegate void(TreePath tp, TreeViewColumn tc, TreeView tv)
+            {
+                TreeIter ti = tv.getSelectedIter();
+                auto v = ti.getValueInt(0);
+                debug
+                    {
+                        writefln("SelectedIter %s", v);
+                    }
+                    thrId.send(DABControl.DABControl.SWITCH,
+                               to!uint(v));
+            } );
         // create first column with text renderer
         TreeViewColumn column = new TreeViewColumn();
         column.setTitle( "Channel" );
