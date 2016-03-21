@@ -87,13 +87,13 @@ class UI : GUIBuilder
         buttonPlay.addOnClicked(delegate void(Button aux) {
                                 auto it = treeviewStations.getSelectedIter;
                                 if (it) {
-                                   debug
-                                        {
-                                            writefln("SelectedIter %s", it.getValueInt(0));
-                                        }
-                                    thrId.send(DABControl.DABControl.SWITCH,
-                                               to!uint(it.getValueInt(
-                                                       COLUMN_CHANNEL)));
+                                   debug {
+                                       writefln("SelectedIter %s",
+                                                it.getValueInt(COLUMN_CHANNEL));
+                                   }
+                                   thrId.send(DABControl.DABControl.SWITCH,
+                                              to!uint(it.getValueInt(
+                                                      COLUMN_CHANNEL)));
                                 }
                             } );
         buttonScan.addOnClicked( delegate void(Button aux)
@@ -121,8 +121,7 @@ class UI : GUIBuilder
 
         CellRendererText cell_text1 = new CellRendererText();
         column.packStart(cell_text1, 0);
-        column.addAttribute(cell_text1, "text",
-                            COLUMN_CHANNEL);
+        column.addAttribute(cell_text1, "text", COLUMN_CHANNEL);
 
         // create second column new renderer
         column = new TreeViewColumn();
@@ -131,8 +130,7 @@ class UI : GUIBuilder
 
         CellRendererText cell_text2 = new CellRendererText();
         column.packStart(cell_text2, 0);
-        column.addAttribute(cell_text2, "text",
-                            COLUMN_NAME);
+        column.addAttribute(cell_text2, "text", COLUMN_NAME);
     }
 
     public void runControl()
@@ -147,10 +145,9 @@ class UI : GUIBuilder
                        },
                        (DABInfo.DABInfo info, int v)
                        {
-                           debug
-                               {
-                                   writefln("DABInfo.DABInfo %1$s, %2$s", info, v);
-                               }
+                           debug {
+                               writefln("DABInfo.DABInfo %1$s, %2$s", info, v);
+                           }
                            if (info == DABInfo.DABInfo.DATA_RATE)
                                {
                                    labelDataRate.setText(format("Data Rate: %s kbps", v));

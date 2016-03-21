@@ -77,7 +77,7 @@ class GUIBuilder
 
         if (w !is null)
             {
-                w.setTitle("DABZilla Version 0.5.3");
+                w.setTitle("DABZilla Version 0.5.4");
                 w.addOnHide( delegate void(Widget aux){ exit(0); } );
 
                 scaleVolume = cast(Scale)g.getObject("scaleVolume");
