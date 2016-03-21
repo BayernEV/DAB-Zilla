@@ -22,6 +22,8 @@ import std.concurrency;
 import core.thread;
 import gtk.TextIter;
 import gtk.TreeIter;
+alias COLUMN_CHANNEL = DABStationColumn.DABStationColumn.COLUMN_CHANNEL;
+alias COLUMN_NAME = DABStationColumn.DABStationColumn.COLUMN_NAME;
 
 // Class UI
 /**
@@ -82,19 +84,18 @@ class UI : GUIBuilder
                                        {
                                            thrId.send(DABControl.DABControl.MUTE);
                                        } );
-        buttonPlay.addOnClicked( delegate void(Button aux)
-                                 {
-                                     auto it = treeviewStations.getSelectedIter;
-                                     if (it)
-                                         {
-                                             debug
-                                                 {
-                                                     writefln("SelectedIter %s", it.getValueInt(0));
-                                                 }
-                                             thrId.send(DABControl.DABControl.SWITCH,
-                                                        to!uint(it.getValueInt(0)));
-                                         }
-                                 } );
+        buttonPlay.addOnClicked(delegate void(Button aux) {
+                                auto it = treeviewStations.getSelectedIter;
+                                if (it) {
+                                   debug
+                                        {
+                                            writefln("SelectedIter %s", it.getValueInt(0));
+                                        }
+                                    thrId.send(DABControl.DABControl.SWITCH,
+                                               to!uint(it.getValueInt(
+                                                       COLUMN_CHANNEL)));
+                                }
+                            } );
         buttonScan.addOnClicked( delegate void(Button aux)
                                  {
                                      thrId.send(DABControl.DABControl.SCAN);
@@ -106,16 +107,12 @@ class UI : GUIBuilder
                                   );
 
         // connect signal to treeviewStations
-        treeviewStations.addOnRowActivated (delegate void(TreePath tp, TreeViewColumn tc, TreeView tv)
+        treeviewStations.addOnRowActivated (delegate void(TreePath tp,
+                                        TreeViewColumn tc, TreeView tv)
             {
                 TreeIter ti = tv.getSelectedIter();
-                auto v = ti.getValueInt(0);
-                debug
-                    {
-                        writefln("SelectedIter %s", v);
-                    }
-                    thrId.send(DABControl.DABControl.SWITCH,
-                               to!uint(v));
+                auto v = ti.getValueInt(COLUMN_CHANNEL);
+                thrId.send(DABControl.DABControl.SWITCH, to!uint(v));
             } );
         // create first column with text renderer
         TreeViewColumn column = new TreeViewColumn();
@@ -123,9 +120,9 @@ class UI : GUIBuilder
         treeviewStations.appendColumn(column);
 
         CellRendererText cell_text1 = new CellRendererText();
-        column.packStart(cell_text1, 0 );
+        column.packStart(cell_text1, 0);
         column.addAttribute(cell_text1, "text",
-                            DABStationColumn.DABStationColumn.COLUMN_CHANNEL);
+                            COLUMN_CHANNEL);
 
         // create second column new renderer
         column = new TreeViewColumn();
@@ -133,9 +130,9 @@ class UI : GUIBuilder
         treeviewStations.appendColumn(column);
 
         CellRendererText cell_text2 = new CellRendererText();
-        column.packStart(cell_text2, 0 );
+        column.packStart(cell_text2, 0);
         column.addAttribute(cell_text2, "text",
-                            DABStationColumn.DABStationColumn.COLUMN_NAME);
+                            COLUMN_NAME);
     }
 
     public void runControl()
