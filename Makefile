@@ -1,6 +1,6 @@
 # Build DABZilla run time version
 
-DMD=/opt/dmd2/linux/bin32/dmd
+DMD=dmd
 CC=gcc
 
 EXEC=DABZilla

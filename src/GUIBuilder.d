@@ -15,7 +15,7 @@ import gtk.Main;
 import gtk.Widget;
 import gtk.Window;
 import std.stdio;
-import std.c.process;
+import core.stdc.stdlib;
 
 // Class GUIBuilder
 /**
@@ -77,7 +77,7 @@ class GUIBuilder
 
         if (w !is null)
             {
-                w.setTitle("DABZilla Version 0.5.4");
+                w.setTitle("DABZilla Version 0.5.5");
                 w.addOnHide( delegate void(Widget aux){ exit(0); } );
 
                 scaleVolume = cast(Scale)g.getObject("scaleVolume");

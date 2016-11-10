@@ -8,6 +8,7 @@ import DABState;
 import DABControl;
 import DABInfo;
 import DABStation;
+import DABStationColumn;
 import Store;
 import gtk.Label;
 import gtk.Range;
