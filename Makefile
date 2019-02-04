@@ -29,6 +29,7 @@ COBJECT = $(BUILDDIR)/KeystoneWrapper.o
 EXEC=DABZilla
 
 LIBDEST=/usr/local/lib
+BINDEST=/usr/local/bin
 LIBBIN=libkeystonecomm.so
 MODEL=model/Controller.zargo
 
@@ -52,5 +53,6 @@ clean   :
 	mv /tmp/1000.jpg /tmp/default.jpg slides
 
 .PHONY  : install
-install :
+install : $(EXEC)
 	cp $(LIBBIN) $(LIBDEST)
+	cp $(EXEC) $(BINDEST)

@@ -428,7 +428,7 @@ class DABController
         auto s = cast(string)read(expandTilde("~/.dabzilla"));
         foreach(record; csvReader!(Tuple!(uint, string, uint))(s))
             {
-                if (record[2] > 24) // dataRate greater 24 kbit/s
+                if (record[2] > 32) // dataRate greater 32 kbit/s
                     {
                         rs.number = to!uint(record[0]);
                         rs.dataRate = to!uint(record[2]);
